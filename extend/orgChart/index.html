@@ -1,0 +1,121 @@
+<!doctype html>
+<html>
+ <head> 
+  <meta charset="utf-8"> 
+  <title>orgChart组织机构图展示 orgChart - layui 第三方组件平台</title> 
+  <meta name="renderer" content="webkit"> 
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"> 
+  <meta name="description" content="组织机构基本可以完美展示,不怕二级部门个数太多,不怕部门层级太深,也不怕部门名字太长, 均可完美展示"> 
+  <link rel="stylesheet" href="/t/font_24081_60slu02pimt.css">
+  <link rel="stylesheet" href="/layui/dist/css/layui.css">
+  <link rel="stylesheet" href="/static/css/fly/global.css" charset="utf-8">
+  <link rel="stylesheet" href="/static/css/global.css" charset="utf-8">
+  <link rel="stylesheet" href="/static/css/global.css" charset="utf-8">
+ </head>
+ <body>
+  <div class="layui-header header header-extends" style="background-color: #24262F;"> 
+   <div class="layui-container"> <a class="logo" href="/"> <img src="/static/images/layui/logo.png" alt="layui"> </a>
+    <div class="layui-form component" lay-filter="LAY-site-header-component"></div> 
+    <ul class="layui-nav"> 
+     <li class="layui-nav-item layui-hide-xs"> <a href="/">框架</a> </li>
+     <li class="layui-nav-item layui-hide-xs layui-this"> <a href="/extend/index.html">扩展</a> </li>
+     <li class="layui-nav-item"> <a href="javascript:">周边</a>
+      <dl class="layui-nav-child layui-nav-child-c"> 
+       <dd lay-unselect> <a href="/alone.html" target="_blank">独立组件</a>
+       </dd> 
+       <dd class="layui-hide-sm layui-show-xs" lay-unselect> <a href="/extend/index.html">扩展组件</a>
+        <hr> 
+       </dd> 
+      </dl> </li> 
+    </ul> 
+   </div>
+  </div><!--[if lt IE 9]>  <script src="https://cdn.staticfile.org/html5shiv/r29/html5.min.js"></script>  <script src="https://cdn.staticfile.org/respond.js/1.4.2/respond.min.js"></script><![endif]--> 
+  <div class="fly-extend-banner fly-extend-banner-sm"> 
+   <div class="layui-carousel" id="FLY-extend-banner" data-height="200px"> 
+    <div carousel-item> 
+     <div style="background-image: url(/upload/2018_8/168_1535373858670_8825.jpg)">
+      <div style="background: rgba(0,0,0,.6)"></div> 
+     </div> 
+    </div> 
+   </div> 
+   <h1 class="fly-extend-banner-title">layui 第三方组件平台</h1> 
+   <div class="fly-extend-banner-release"> <a href="/extend/index.html" class="layui-btn layui-btn-lg">返回首页</a>
+   </div> 
+  </div>
+  <div class="fly-extend-detail layui-card"> 
+   <div class="layui-container"> 
+    <div class="fly-extend-list-header"> 
+     <h1 class="fly-extend-title layui-elip"> <a>orgChart组织机构图展示</a> <span class="layui-badge layui-bg-green layui-hide-xs">orgChart</span> </h1> 
+     <div class="fly-extend-list-info"> <a href="/u/287616/index.html" target="_blank" class="fly-extend-list-user" title="发布者"> <cite class="layui-hide-xs">雨时**节</cite> <img src="/avatar/287616.jpg" alt="雨时**节"> </a>
+     </div> 
+    </div> 
+    <blockquote class="fly-extend-list-desc layui-elem-quote"> 
+     <p>组织机构基本可以完美展示,不怕二级部门个数太多,不怕部门层级太深,也不怕部门名字太长, 均可完美展示</p> 
+    </blockquote> 
+    <div class="fly-extend-list-bottom"> <span class="layui-inline">更新：2018-12-17 </span> <span class="layui-inline">创建：2018-9-14 </span> 
+     <div class="layui-btn-container layui-extend-doc-edit"> 
+     </div> 
+    </div> 
+   </div>
+  </div>
+  <div class="layui-container"> 
+   <div class="layui-row layui-col-space20"> 
+    <div class="layui-col-sm3 layui-col-md2"> 
+     <div class="layui-card"> 
+      <ul class="fly-extend-doc-nav" lay-filter="extend-doc-nav"> 
+       <li class="layui-this" lay-id="doc"> <a href="javascript:"><i class="iconfont icon-wendang"></i> 文档</a> </li>
+       <li lay-id="download"> <a href="javascript:"><i class="iconfont icon-xiazai"></i> 下载</a> </li>
+       <li lay-id=""> <a href="https://github.com/xieyushi/layui-orgChart" rel="nofollow" target="_blank"> <i class="iconfont icon-kaifashili"></i> 来源 </a> </li>
+      </ul> 
+     </div> 
+    </div> 
+    <div class="layui-col-sm9 layui-col-md10"> 
+     <div class="layui-card fly-extend-doc layui-show"> 
+      <div class="layui-card-header"> 
+       <h3 class="layui-inline layui-this">文档</h3> 
+      </div> 
+      <div class="layui-card-body detail-body photos layui-text">
+        先直接上图,喜欢的朋友再向下看:
+       <br>
+       <img src="/upload/2018_9/287616_1536487590810_30741.gif">
+       <br>
+       <pre>//1.下载orgChart <br>//2.模块化使用<br>&lt;script src="layui.js" type="text/javascript" charset="utf-8"&gt;&lt;/script&gt;<br>&lt;script type="text/javascript"&gt;<br>    //全局定义一次, 加载formSelects<br>    layui.config({<br>        base: '../src/' //此处路径请自行处理, 可以使用绝对路径<br>    }).extend({<br>        orgChart: 'orgChart'<br>    });<br>    //加载模块<br>    layui.use(['jquery', 'orgChart'], function(){<br>        var orgChart = layui.orgChart;<br>         <br>    });<br>&lt;/script&gt;<br> <br>//3.非模块化使用<br>&lt;script src="layui.all.js" type="text/javascript" charset="utf-8"&gt;&lt;/script&gt;<br>&lt;script src="orgChart.js" type="text/javascript" charset="utf-8"&gt;&lt;/script&gt;<br>&lt;script type="text/javascript"&gt;<br>    var orgChart = layui.orgChart;<br>     <br>&lt;/script&gt;</pre>基本参数
+       <br>
+       <pre>elm: '.orgWrap',//jquery选择器,ID class等等 各种组合选择都可以<br>data: data,//树形结构的json数据,数据结构的格式见下方<br>drag: true,//是否可以拖动<br>depth: 3,//初始展开的部门层数,推荐为2 或者3<br>renderdata:function(data, $dom) {}//渲染每一个节点时的回调,每一个部门节点的渲染方式,data为当前节点的数据,$dom为当前节点的dom元素<br>callback:function(){}渲染完成的回调</pre>代码示例
+       <br>
+       <pre>HTML部分：<br>&lt;div class="orgWrap"&gt;<br>&lt;/div&gt;<br>这里记住，一定要在渲染的div上加上orgWrap这个class，之前忘了说了。。。<br>一定要记住<br>JS部分：<br>orgChart.render({<br>	elm: '.orgWrap',<br>	data: data,<br>	drag: true,<br>	depth: 3,<br>	renderdata: function(data,$dom)<br>		var value = data;<br>		if(value &amp;&amp; Object.keys(value).length) {<br>			var $name = $('&lt;div class="name"&gt;&lt;/div&gt;');<br>			!!(value.name) &amp;&amp; $name.text(value.name);<br>			$dom.append($name)<br>			$dom.addClass('organization')<br>		}<br>	},<br>	callback: function() {}<br>});</pre>要注意的是插件为两个文件:orgChart.js与orgChart.css,其中lenchart.js放在extend中orgChart.css放在src/style中,这个路径不要变,如果你想变,请在orgChart.js中去修改JS代码,不然css无法正常引入,会丢样式.
+       <br>发布的比较仓促,如果有bug的话,请及时提出,在render方法中可以做更多内部的展示,我只是做了一个部门名称的展示,比如有部门有多少人,部门负责人是谁,这些只要你自己设置好,都 是可以展示的,全看个人需求.
+       <br>另外.组织机构请按下列数据结构传递:
+       <br>
+       <pre>{<br>		"id": 26,<br>		"name": "顶级部门",<br>		"parentId": null,<br>		"children": [{<br>			"id": 27,<br>			"name": "办公室",<br>			"parentId": 26,<br>			"children": [{<br>				"id": 28,<br>				"name": "信息中心",<br>				"parentId": 27,<br>				"children": [{<br>					"id": 29,<br>					"name": "信息中心1",<br>					"parentId": 28<br>				}]<br>			}]<br>		}, {<br>			"id": 30,<br>			"name": "信息中心",<br>			"parentId": 26<br>		}, {<br>			"id": 31,<br>			"name": "采购部",<br>			"parentId": 26<br>		}, {<br>			"id": 44,<br>			"name": "部门1",<br>			"parentId": 26,<br>			"children": [{<br>				"id": 51,<br>				"name": "部门1-2",<br>				"parentId": 44,<br>				"children": [{<br>					"id": 52,<br>					"name": "部门1-2-1",<br>					"parentId": 51<br>				}]<br>			}, {<br>				"id": 53,<br>				"name": "部门1-1",<br>				"parentId": 44,<br>				"children": [{<br>					"id": 54,<br>					"name": "部门1-1-1",<br>					"parentId": 53,<br>					"children": [{<br>						"id": 55,<br>						"name": "部门1-1-1-1",<br>						"parentId": 54,<br>						"children": [{<br>							"id": 56,<br>							"name": "部门1-1-1-1-1",<br>							"parentId": 55,<br>							"children": [{<br>								"id": 57,<br>								"name": "部门1-1-1-1-1-1",<br>								"parentId": 56<br>							}]<br>						}]<br>					}]<br>				}]<br>			}]<br>		}, {<br>			"id": 45,<br>			"name": "部门2",<br>			"parentId": 26<br>		}, {<br>			"id": 46,<br>			"name": "部门3",<br>			"parentId": 26<br>		}, {<br>			"id": 47,<br>			"name": "部门4",<br>			"parentId": 26<br>		}, {<br>			"id": 48,<br>			"name": "部门5",<br>			"parentId": 26<br>		}, {<br>			"id": 49,<br>			"name": "部门5",<br>			"parentId": 26<br>		}, {<br>			"id": 50,<br>			"name": "部门6名字要长长长长长长长够长了吗?",<br>			"parentId": 26<br>		}]<br>	}</pre>更详细教程请移步我的个人博客: <a href="https://blog.coder666.cn/2018/09/09/blog12/" target="_blank" rel="nofollow">https://blog.coder666.cn/2018/09/09/blog12/</a>
+       <br>或者博客小程序:
+       <img src="/upload/2018_12/287616_1545010180083_82750.png">
+       <br> 
+      </div> 
+     </div> 
+     <div class="layui-card fly-extend-doc"> 
+      <div class="layui-card-header"> 
+       <h3 class="layui-inline layui-this">下载</h3> 
+      </div> 
+      <div class="layui-card-body detail-body layui-text"> 
+       <div class="layui-btn-container"> <a href="/extend/287616_1540172102733_89194.zip" target="_blank" class="layui-btn layui-btn-lg layui-btn-primary"> 立即下载 </a> <a href="https://github.com/xieyushi/layui-orgChart" target="_blank" class="layui-btn layui-btn-lg layui-btn-primary layui-border-black"> 去 GitHub 下载 </a>
+        <blockquote class="layui-elem-quote">
+          该扩展组件由第三方用户主动投递，并由其自身进行维护，本站仅做收集。 
+        </blockquote> 
+       </div> 
+      </div> 
+     </div> 
+    </div> 
+   </div>
+  </div>
+  <div class="fly-footer"> 
+   <p> Copyright © 2022 <a href="layui.windseeker.link">layui.windseeker.link</a> MIT Licensed</p>
+   <p> copyright © 2022 <a href="https://www.windseeker.link/" target="_blank">windseeker</a> all rights reserved.| <a href="http://beian.miit.gov.cn/" target="_blank">沪ICP备2021002849号-2</a></p>
+  </div>
+  <script src="/layui/dist/layui.js"></script>
+  <script src="/common/extend-common.js"></script>
+
+ </body>
+<script src="/common/common.js"></script>
+</html>

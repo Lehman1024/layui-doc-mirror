@@ -1,0 +1,139 @@
+<!doctype html>
+<html>
+ <head> 
+  <meta charset="utf-8"> 
+  <title>级联选择器 rc_cascader - layui 第三方组件平台</title> 
+  <meta name="renderer" content="webkit"> 
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"> 
+  <meta name="description" content="仿 ElementUI 的 Cascader 级联选择器"> 
+  <link rel="stylesheet" href="/t/font_24081_60slu02pimt.css">
+  <link rel="stylesheet" href="/layui/dist/css/layui.css">
+  <link rel="stylesheet" href="/static/css/fly/global.css" charset="utf-8">
+  <link rel="stylesheet" href="/static/css/global.css" charset="utf-8">
+  <link rel="stylesheet" href="/static/css/global.css" charset="utf-8">
+ </head>
+ <body>
+  <div class="layui-header header header-extends" style="background-color: #24262F;"> 
+   <div class="layui-container"> <a class="logo" href="/"> <img src="/static/images/layui/logo.png" alt="layui"> </a>
+    <div class="layui-form component" lay-filter="LAY-site-header-component"></div> 
+    <ul class="layui-nav"> 
+     <li class="layui-nav-item layui-hide-xs"> <a href="/">框架</a> </li>
+     <li class="layui-nav-item layui-hide-xs layui-this"> <a href="/extend/index.html">扩展</a> </li>
+     <li class="layui-nav-item"> <a href="javascript:">周边</a>
+      <dl class="layui-nav-child layui-nav-child-c"> 
+       <dd lay-unselect> <a href="/alone.html" target="_blank">独立组件</a>
+       </dd> 
+       <dd class="layui-hide-sm layui-show-xs" lay-unselect> <a href="/extend/index.html">扩展组件</a>
+        <hr> 
+       </dd> 
+      </dl> </li> 
+    </ul> 
+   </div>
+  </div><!--[if lt IE 9]>  <script src="https://cdn.staticfile.org/html5shiv/r29/html5.min.js"></script>  <script src="https://cdn.staticfile.org/respond.js/1.4.2/respond.min.js"></script><![endif]--> 
+  <div class="fly-extend-banner fly-extend-banner-sm"> 
+   <div class="layui-carousel" id="FLY-extend-banner" data-height="200px"> 
+    <div carousel-item> 
+     <div style="background-image: url(/upload/2018_8/168_1535373858670_8825.jpg)">
+      <div style="background: rgba(0,0,0,.6)"></div> 
+     </div> 
+    </div> 
+   </div> 
+   <h1 class="fly-extend-banner-title">layui 第三方组件平台</h1> 
+   <div class="fly-extend-banner-release"> <a href="/extend/index.html" class="layui-btn layui-btn-lg">返回首页</a>
+   </div> 
+  </div>
+  <div class="fly-extend-detail layui-card"> 
+   <div class="layui-container"> 
+    <div class="fly-extend-list-header"> 
+     <h1 class="fly-extend-title layui-elip"> <a>级联选择器</a> <span class="layui-badge layui-bg-green layui-hide-xs">rc_cascader</span> </h1> 
+     <div class="fly-extend-list-info"> <a href="/u/6194664/index.html" target="_blank" class="fly-extend-list-user" title="发布者"> <cite class="layui-hide-xs">Ri**n</cite> <img src="/qqapp/101235792/3388DFDB3633BEBC93B536DCA681FB97/100" alt="Ri**n"> </a>
+     </div> 
+    </div> 
+    <blockquote class="fly-extend-list-desc layui-elem-quote"> 
+     <p>仿 ElementUI 的 Cascader 级联选择器</p> 
+    </blockquote> 
+    <div class="fly-extend-list-bottom"> <span class="layui-inline">更新：2021-1-10 </span> <span class="layui-inline">创建：2020-12-3 </span> 
+     <div class="layui-btn-container layui-extend-doc-edit"> 
+     </div> 
+    </div> 
+   </div>
+  </div>
+  <div class="layui-container"> 
+   <div class="layui-row layui-col-space20"> 
+    <div class="layui-col-sm3 layui-col-md2"> 
+     <div class="layui-card"> 
+      <ul class="fly-extend-doc-nav" lay-filter="extend-doc-nav"> 
+       <li class="layui-this" lay-id="doc"> <a href="javascript:"><i class="iconfont icon-wendang"></i> 文档</a> </li>
+       <li lay-id="download"> <a href="javascript:"><i class="iconfont icon-xiazai"></i> 下载</a> </li>
+      </ul> 
+     </div> 
+    </div> 
+    <div class="layui-col-sm9 layui-col-md10"> 
+     <div class="layui-card fly-extend-doc layui-show"> 
+      <div class="layui-card-header"> 
+       <h3 class="layui-inline layui-this">文档</h3> 
+      </div> 
+      <div class="layui-card-body detail-body photos layui-text"> 
+       <div class="layui-elem-quote">
+         效果图
+       </div>单选
+       <br>
+       <img src="/upload/2020_9/6194664_1601256870253_95533.gif">
+       <br>
+       <br>多选无折叠
+       <br>
+       <img src="/upload/2020_9/6194664_1601256639372_62626.gif">
+       <br>
+       <br>多选折叠
+       <br>
+       <img src="/upload/2020_9/6194664_1601256576149_28173.gif">
+       <br>
+       <br>
+       <div class="layui-elem-quote">
+         配置参数文档（*表示必填）
+       </div>*elem：HTMLElement对象，例如：$('input[name=example]')[0]
+       <br>*options：Array 数据
+       <br>onChange: Function(curr, value) curr: 选中值，value：所有值(当multiple为true有效)
+       <br>multiple：boolean 是否开启多选，默认 Flase
+       <br>collapseTags：boolean 是否折叠选项（multiple 开启时有效），默认 True
+       <br>showAllLevels: boolean 是否查看所有级名，默认 True
+       <br>props：数据对象解析，默认：{ label: 'label', value: 'value', children: 'children' }
+       <br>placeholder：String 无选择文本填充 默认 请选择
+       <br>separator：String 显示文本的分隔符号（showAllLevels开启时生效） 默认 /
+       <br>valueSeparator：String 选择值的级联分隔符号 默认 ,
+       <br>groupSeparator：String 多选时选择值的组分隔符号 默认 |
+       <br>
+       <br>
+       <hr>
+       <div class="layui-elem-quote">
+         配置参考DEMO
+       </div>
+       <pre>layui.config({<br>    base: './ext/'<br>  }).extend({<br>    cascader: 'cascader/cascader'<br>  }).use(['jquery', 'cascader'], function () {<br>    var $ = layui.jquery, cascader = layui.cascader;<br>    var areaTree = '[{"id":"1000","province_city":"\u5317\u4eac","fid":"0","children":[{"id":"1368","province_city":"\u5317\u4eac\u5e02","fid":"1000","children":[{"id":"1397","province_city":"\u4e1c\u57ce\u533a","fid":"1368"},{"id":"1398","province_city":"\u897f\u57ce\u533a","fid":"1368"},{"id":"1399","province_city":"\u5d07\u6587\u533a","fid":"1368"},{"id":"1400","province_city":"\u5ba3\u6b66\u533a","fid":"1368"},{"id":"1401","province_city":"\u671d\u9633\u533a","fid":"1368"},{"id":"1402","province_city":"\u6d77\u6dc0\u533a","fid":"1368"},{"id":"1403","province_city":"\u4e30\u53f0\u533a","fid":"1368"},{"id":"1404","province_city":"\u77f3\u666f\u5c71\u533a","fid":"1368"},{"id":"1405","province_city":"\u623f\u5c71\u533a","fid":"1368"},{"id":"1406","province_city":"\u901a\u5dde\u533a","fid":"1368"},{"id":"1407","province_city":"\u987a\u4e49\u533a","fid":"1368"},{"id":"1408","province_city":"\u95e8\u5934\u6c9f\u533a","fid":"1368"},{"id":"1409","province_city":"\u660c\u5e73\u533a","fid":"1368"},{"id":"1410","province_city":"\u5927\u5174\u533a","fid":"1368"},{"id":"1411","province_city":"\u6000\u67d4\u533a","fid":"1368"},{"id":"1412","province_city":"\u5e73\u8c37\u533a","fid":"1368"},{"id":"1413","province_city":"\u5bc6\u4e91\u53bf","fid":"1368"},{"id":"1414","province_city":"\u5ef6\u5e86\u533a","fid":"1368"}]}]},{"id":"1001","province_city":"\u4e0a\u6d77","fid":"0","children":[{"id":"1369","province_city":"\u4e0a\u6d77\u5e02","fid":"1001","children":[{"id":"1433","province_city":"\u9ec4\u6d66\u533a","fid":"1369"},{"id":"1434","province_city":"\u5362\u6e7e\u533a","fid":"1369"},{"id":"1435","province_city":"\u5f90\u6c47\u533a","fid":"1369"},{"id":"1436","province_city":"\u957f\u5b81\u533a","fid":"1369"},{"id":"1437","province_city":"\u9759\u5b89\u533a","fid":"1369"},{"id":"1438","province_city":"\u666e\u9640\u533a","fid":"1369"},{"id":"1439","province_city":"\u95f8\u5317\u533a","fid":"1369"},{"id":"1440","province_city":"\u8679\u53e3\u533a","fid":"1369"},{"id":"1441","province_city":"\u6768\u6d66\u533a","fid":"1369"},{"id":"1442","province_city":"\u5b9d\u5c71\u533a","fid":"1369"},{"id":"1443","province_city":"\u95f5\u884c\u533a","fid":"1369"},{"id":"1444","province_city":"\u5609\u5b9a\u533a","fid":"1369"},{"id":"1445","province_city":"\u677e\u6c5f\u533a","fid":"1369"},{"id":"1446","province_city":"\u91d1\u5c71\u533a","fid":"1369"},{"id":"1447","province_city":"\u9752\u6d66\u533a","fid":"1369"},{"id":"1448","province_city":"\u6d66\u4e1c\u65b0\u533a","fid":"1369"},{"id":"1449","province_city":"\u5357\u6c47\u533a","fid":"1369"},{"id":"1450","province_city":"\u5949\u8d24\u533a","fid":"1369"},{"id":"1451","province_city":"\u5d07\u660e\u53bf","fid":"1369"}]}]}]';<br><br>    cascader.render({<br>      elem: $('input[name=areas]')[0],<br>      showAllLevels: true,<br>      props: {<br>        label: 'province_city',<br>        value: 'id',<br>        children: 'children'<br>      },<br>      options: JSON.parse(areaTree),<br>    });<br>  });</pre>注：如果有问题可以加下我QQ 2725629672，请附加上LAYUI CASCADER 
+      </div> 
+     </div> 
+     <div class="layui-card fly-extend-doc"> 
+      <div class="layui-card-header"> 
+       <h3 class="layui-inline layui-this">下载</h3> 
+      </div> 
+      <div class="layui-card-body detail-body layui-text"> 
+       <div class="layui-btn-container"> <a href="/extend/6194664_1609402211256_33203.zip" target="_blank" class="layui-btn layui-btn-lg layui-btn-primary"> 立即下载 </a> <a href="https://github.com/ringocx/layui_cascader" target="_blank" class="layui-btn layui-btn-lg layui-btn-primary layui-border-black"> 去 GitHub 下载 </a>
+        <blockquote class="layui-elem-quote">
+          该扩展组件由第三方用户主动投递，并由其自身进行维护，本站仅做收集。 
+        </blockquote> 
+       </div> 
+      </div> 
+     </div> 
+    </div> 
+   </div>
+  </div>
+  <div class="fly-footer"> 
+   <p> Copyright © 2022 <a href="layui.windseeker.link">layui.windseeker.link</a> MIT Licensed</p>
+   <p> copyright © 2022 <a href="https://www.windseeker.link/" target="_blank">windseeker</a> all rights reserved.| <a href="http://beian.miit.gov.cn/" target="_blank">沪ICP备2021002849号-2</a></p>
+  </div>
+  <script src="/layui/dist/layui.js"></script>
+  <script src="/common/extend-common.js"></script>
+
+ </body>
+<script src="/common/common.js"></script>
+</html>

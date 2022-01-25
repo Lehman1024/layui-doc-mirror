@@ -1,0 +1,116 @@
+<!doctype html>
+<html>
+ <head> 
+  <meta charset="utf-8"> 
+  <title>sysdata 数据缓存组件 sysdata - layui 第三方组件平台</title> 
+  <meta name="renderer" content="webkit"> 
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"> 
+  <meta name="description" content="1.解决:在弹出层为页面层,且传值为复杂json格式的值问题. 
+2. 当层在销毁后调用父界面方法的问题"> 
+  <link rel="stylesheet" href="/t/font_24081_60slu02pimt.css">
+  <link rel="stylesheet" href="/layui/dist/css/layui.css">
+  <link rel="stylesheet" href="/static/css/fly/global.css" charset="utf-8">
+  <link rel="stylesheet" href="/static/css/global.css" charset="utf-8">
+  <link rel="stylesheet" href="/static/css/global.css" charset="utf-8">
+ </head>
+ <body>
+  <div class="layui-header header header-extends" style="background-color: #24262F;"> 
+   <div class="layui-container"> <a class="logo" href="/"> <img src="/static/images/layui/logo.png" alt="layui"> </a>
+    <div class="layui-form component" lay-filter="LAY-site-header-component"></div> 
+    <ul class="layui-nav"> 
+     <li class="layui-nav-item layui-hide-xs"> <a href="/">框架</a> </li>
+     <li class="layui-nav-item layui-hide-xs layui-this"> <a href="/extend/index.html">扩展</a> </li>
+     <li class="layui-nav-item"> <a href="javascript:">周边</a>
+      <dl class="layui-nav-child layui-nav-child-c"> 
+       <dd lay-unselect> <a href="/alone.html" target="_blank">独立组件</a>
+       </dd> 
+       <dd class="layui-hide-sm layui-show-xs" lay-unselect> <a href="/extend/index.html">扩展组件</a>
+        <hr> 
+       </dd> 
+      </dl> </li> 
+    </ul> 
+   </div>
+  </div><!--[if lt IE 9]>  <script src="https://cdn.staticfile.org/html5shiv/r29/html5.min.js"></script>  <script src="https://cdn.staticfile.org/respond.js/1.4.2/respond.min.js"></script><![endif]--> 
+  <div class="fly-extend-banner fly-extend-banner-sm"> 
+   <div class="layui-carousel" id="FLY-extend-banner" data-height="200px"> 
+    <div carousel-item> 
+     <div style="background-image: url(/upload/2018_8/168_1535373858670_8825.jpg)">
+      <div style="background: rgba(0,0,0,.6)"></div> 
+     </div> 
+    </div> 
+   </div> 
+   <h1 class="fly-extend-banner-title">layui 第三方组件平台</h1> 
+   <div class="fly-extend-banner-release"> <a href="/extend/index.html" class="layui-btn layui-btn-lg">返回首页</a>
+   </div> 
+  </div>
+  <div class="fly-extend-detail layui-card"> 
+   <div class="layui-container"> 
+    <div class="fly-extend-list-header"> 
+     <h1 class="fly-extend-title layui-elip"> <a>sysdata 数据缓存组件</a> <span class="layui-badge layui-bg-green layui-hide-xs">sysdata</span> </h1> 
+     <div class="fly-extend-list-info"> <a href="/u/4470312/index.html" target="_blank" class="fly-extend-list-user" title="发布者"> <cite class="layui-hide-xs">jo**y</cite> <img src="/qqapp/101235792/0397F518684BD16D674691AE6A4019D3/100" alt="jo**y"> </a>
+     </div> 
+    </div> 
+    <blockquote class="fly-extend-list-desc layui-elem-quote"> 
+     <p>1.解决:在弹出层为页面层,且传值为复杂json格式的值问题. 2. 当层在销毁后调用父界面方法的问题</p> 
+    </blockquote> 
+    <div class="fly-extend-list-bottom"> <span class="layui-inline">创建：2018-9-3 </span> 
+     <div class="layui-btn-container layui-extend-doc-edit"> 
+     </div> 
+    </div> 
+   </div>
+  </div>
+  <div class="layui-container"> 
+   <div class="layui-row layui-col-space20"> 
+    <div class="layui-col-sm3 layui-col-md2"> 
+     <div class="layui-card"> 
+      <ul class="fly-extend-doc-nav" lay-filter="extend-doc-nav"> 
+       <li class="layui-this" lay-id="doc"> <a href="javascript:"><i class="iconfont icon-wendang"></i> 文档</a> </li>
+       <li lay-id="download"> <a href="javascript:"><i class="iconfont icon-xiazai"></i> 下载</a> </li>
+      </ul> 
+     </div> 
+    </div> 
+    <div class="layui-col-sm9 layui-col-md10"> 
+     <div class="layui-card fly-extend-doc layui-show"> 
+      <div class="layui-card-header"> 
+       <h3 class="layui-inline layui-this">文档</h3> 
+      </div> 
+      <div class="layui-card-body detail-body photos layui-text">
+        效果图
+       <br>
+       <img src="/upload/2018_9/4470312_1535943734374_61605.gif">
+       <br>
+       <br>1. 引入模块,
+       <br>
+       <pre>    // 加载模块<br>    layui.config({<br>        base: 'module/' //假设这是你存放拓展模块的根目录<br>    }).extend({ //设定模块别名<br>        sysdata: 'sysdata'<br>    });</pre>2. 组件里的而方法清单, 详细的参数说明,源码注释上有
+       <br>
+       <pre>createKey : 生成一个数据保存的key<br>saveData : 保存数据的方法,数据格式 {param:{},result:{},obj:{}}<br>saveDataParam : 保存数据的方法, 直接保存到 param<br>saveDataResult : 保存数据的方法, 直接保存到 result<br>saveDataObj : 保存数据的方法, 直接保存到 obj<br>getData : 获取全部的数据<br>getDataParam : 获取数据里面  param 的值<br>getDataResult : 获取数据里面 result 的值<br>getDataObj : 获取数据里面 obj 的值<br>cleanData : 清除数据</pre>作者寄语 : 一个很简单的组件,上面的demo只是它的一个简单用法,如果用的好, 它还能产生更大的作用哦
+       <br>
+       <br> 
+      </div> 
+     </div> 
+     <div class="layui-card fly-extend-doc"> 
+      <div class="layui-card-header"> 
+       <h3 class="layui-inline layui-this">下载</h3> 
+      </div> 
+      <div class="layui-card-body detail-body layui-text"> 
+       <div class="layui-btn-container"> <a href="/extend/4470312_1535946351082_81404.zip" target="_blank" class="layui-btn layui-btn-lg layui-btn-primary"> 立即下载 </a> <a href="https://gitee.com/sesamekim/sysdata" target="_blank" class="layui-btn layui-btn-lg layui-btn-primary layui-border-red"> 去码云下载 </a>
+        <blockquote class="layui-elem-quote">
+          该扩展组件由第三方用户主动投递，并由其自身进行维护，本站仅做收集。 
+        </blockquote> 
+       </div> 
+      </div> 
+     </div> 
+    </div> 
+   </div>
+  </div>
+  <div class="fly-footer"> 
+   <p> Copyright © 2022 <a href="layui.windseeker.link">layui.windseeker.link</a> MIT Licensed</p>
+   <p> copyright © 2022 <a href="https://www.windseeker.link/" target="_blank">windseeker</a> all rights reserved.| <a href="http://beian.miit.gov.cn/" target="_blank">沪ICP备2021002849号-2</a></p>
+  </div>
+  <script src="/layui/dist/layui.js"></script>
+  <script src="/common/extend-common.js"></script>
+
+ </body>
+<script src="/common/common.js"></script>
+</html>

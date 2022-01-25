@@ -1,0 +1,158 @@
+<!doctype html>
+<html>
+ <head> 
+  <meta charset="utf-8"> 
+  <title>动态条件选择器组件 dynamicCondition - layui 第三方组件平台</title> 
+  <meta name="renderer" content="webkit"> 
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"> 
+  <meta name="description" content="查询条件可以根据需要动态添加。
+条件可以选择等于，包含，范围，不等于，开头字符，结尾字符，为空等。
+根据需要添加对应的查询条件对table数据进行过滤。"> 
+  <link rel="stylesheet" href="/t/font_24081_60slu02pimt.css">
+  <link rel="stylesheet" href="/layui/dist/css/layui.css">
+  <link rel="stylesheet" href="/static/css/fly/global.css" charset="utf-8">
+  <link rel="stylesheet" href="/static/css/global.css" charset="utf-8">
+  <link rel="stylesheet" href="/static/css/global.css" charset="utf-8">
+ </head>
+ <body>
+  <div class="layui-header header header-extends" style="background-color: #24262F;"> 
+   <div class="layui-container"> <a class="logo" href="/"> <img src="/static/images/layui/logo.png" alt="layui"> </a>
+    <div class="layui-form component" lay-filter="LAY-site-header-component"></div> 
+    <ul class="layui-nav"> 
+     <li class="layui-nav-item layui-hide-xs"> <a href="/">框架</a> </li>
+     <li class="layui-nav-item layui-hide-xs layui-this"> <a href="/extend/index.html">扩展</a> </li>
+     <li class="layui-nav-item"> <a href="javascript:">周边</a>
+      <dl class="layui-nav-child layui-nav-child-c"> 
+       <dd lay-unselect> <a href="/alone.html" target="_blank">独立组件</a>
+       </dd> 
+       <dd class="layui-hide-sm layui-show-xs" lay-unselect> <a href="/extend/index.html">扩展组件</a>
+        <hr> 
+       </dd> 
+      </dl> </li> 
+    </ul> 
+   </div>
+  </div><!--[if lt IE 9]>  <script src="https://cdn.staticfile.org/html5shiv/r29/html5.min.js"></script>  <script src="https://cdn.staticfile.org/respond.js/1.4.2/respond.min.js"></script><![endif]--> 
+  <div class="fly-extend-banner fly-extend-banner-sm"> 
+   <div class="layui-carousel" id="FLY-extend-banner" data-height="200px"> 
+    <div carousel-item> 
+     <div style="background-image: url(/upload/2018_8/168_1535373858670_8825.jpg)">
+      <div style="background: rgba(0,0,0,.6)"></div> 
+     </div> 
+    </div> 
+   </div> 
+   <h1 class="fly-extend-banner-title">layui 第三方组件平台</h1> 
+   <div class="fly-extend-banner-release"> <a href="/extend/index.html" class="layui-btn layui-btn-lg">返回首页</a>
+   </div> 
+  </div>
+  <div class="fly-extend-detail layui-card"> 
+   <div class="layui-container"> 
+    <div class="fly-extend-list-header"> 
+     <h1 class="fly-extend-title layui-elip"> <a>动态条件选择器组件</a> <span class="layui-badge layui-bg-green layui-hide-xs">dynamicCondition</span> </h1> 
+     <div class="fly-extend-list-info"> <a href="/u/9916536/index.html" target="_blank" class="fly-extend-list-user" title="发布者"> <cite class="layui-hide-xs">pe**n</cite> <img src="/qqapp/101235792/59CBC71F585DD3AD041FAF191A6D23FB/100" alt="pe**n"> </a>
+     </div> 
+    </div> 
+    <blockquote class="fly-extend-list-desc layui-elem-quote"> 
+     <p>查询条件可以根据需要动态添加。 条件可以选择等于，包含，范围，不等于，开头字符，结尾字符，为空等。 根据需要添加对应的查询条件对table数据进行过滤。</p> 
+    </blockquote> 
+    <div class="fly-extend-list-bottom"> <span class="layui-inline">更新：2019-9-20 </span> <span class="layui-inline">创建：2018-11-7 </span> 
+     <div class="layui-btn-container layui-extend-doc-edit"> 
+     </div> 
+    </div> 
+   </div>
+  </div>
+  <div class="layui-container"> 
+   <div class="layui-row layui-col-space20"> 
+    <div class="layui-col-sm3 layui-col-md2"> 
+     <div class="layui-card"> 
+      <ul class="fly-extend-doc-nav" lay-filter="extend-doc-nav"> 
+       <li class="layui-this" lay-id="doc"> <a href="javascript:"><i class="iconfont icon-wendang"></i> 文档</a> </li>
+       <li lay-id="download"> <a href="javascript:"><i class="iconfont icon-xiazai"></i> 下载</a> </li>
+      </ul> 
+     </div> 
+    </div> 
+    <div class="layui-col-sm9 layui-col-md10"> 
+     <div class="layui-card fly-extend-doc layui-show"> 
+      <div class="layui-card-header"> 
+       <h3 class="layui-inline layui-this">文档</h3> 
+      </div> 
+      <div class="layui-card-body detail-body photos layui-text"> <a href="https://gitee.com/pelin0963/layuiExtend/releases" target="_blank" rel="nofollow">最新版本下载</a>
+       <br>
+       <pre>日期：2019-09-20<br>版本：v3.1.0<br>新增2个功能：1.可以自定义操作选项，2：查询时，可额外附加参数，如参数数据类型。</pre>
+       <pre>日期：2019-04-09<br>版本：v3.0.0<br>1.新增用户全局配置。见dynamicCondition.js同目录下的dcConfig.js文件。<br>通过该文件可以修改dynamicCondition组件全局默认配置。没有该文件也能正常使用，这样会使用组件默认设定的配置。<br>2.将相关的css从dynamicCondition.js中分离出来，使用css文件专门管理。<br>3.新增操作按钮面板。可以方便的扩充按钮选项。</pre>详细文档参考： <a href="https://blog.csdn.net/xiaozaq/article/details/89173034" target="_blank" rel="nofollow">dynamicCondition v3版本更新内容</a>
+       <br>
+       <pre>日期：2019-01-04<br>版本：v2.0.2<br>1.新增查询条件无弹窗模式。<br>    不用弹窗窗口填写查询条件，与传统UI类似，直接在界面上填写查询条件。<br>2.新增requestDataType配置。<br>    对PHP更友好，之前复杂查询请求数据格式是方便java后台获取数据，用的数组模式。<br>    可以通过配置requestDataType，使用json字符串提交请求数据，方便PHP后台接收。</pre>版本向前兼容。高版本可以直接替换低版本对之前的代码没有任何影响。
+       <br>版本说明： <a href="https://blog.csdn.net/xiaozaq/article/details/85757959" target="_blank" rel="nofollow">dynamicCondition组件升级为2.0.2版本</a>
+       <br>按查询条件是否弹窗分为：弹窗/无弹窗 模式
+       <br>按查询条件是否复杂分为：简单/复杂 模式
+       <br>各模式优点：
+       <br>1.简单模式：传统查询可以在不改后台代码情况下替换成简单模式。
+       <br>2.复杂模式：条件可以选择等于，包含，范围，不等于，开头字符，结尾字符，为空等。有些查询必须要求这些功能。
+       <br>3.弹窗模式：同时需要的查询条件比较多时，一行显示不全会导致界面不好看。这时可以考虑使用弹窗模式。
+       <br>4.无弹窗模式：提供的查询条件较多，但每次查询只需选择1-3个条件时，考虑使用无弹窗模式。
+       <br>
+       <br>具体使用组合就有四种模式。可以选择合适的使用。他们互相切换起来也比较简单。
+       <br>1.简单/无弹窗模式：该模式与传统的查询条件UI最接近。可以在不改后台代码情况下替换成改模式。
+       <br>2.复杂/无弹窗模式：个人比较推荐使用该模式。需要后台编写相应逻辑配合使用。
+       <br>3.复杂/弹窗模式：查询条件超过3个时，推荐使用。条件太多导致界面很难看，通过弹窗模式可以让界面更精简。
+       <br>4.简单/弹窗模式：查询条件超过5个时，推荐使用。条件太多导致界面很难看，通过弹窗模式可以让界面更精简。
+       <br>
+       <pre>日期：2018-12-06<br>版本：v2.0.0<br>1.支持扩展编辑器。可以实现下拉框级联，下拉树，单选组等ui控件。 <br>2.ops，allowDel，最大化最小化等支持。</pre><a href="https://blog.csdn.net/xiaozaq/article/details/84872222" target="_blank" rel="nofollow">高级查询组件dynamicCondition升级为v2.0.0版本（一）</a>
+       <br><a href="https://blog.csdn.net/xiaozaq/article/details/84872233" target="_blank" rel="nofollow">高级查询组件dynamicCondition升级为v2.0.0版本（二）</a>
+       <br><a href="https://blog.csdn.net/xiaozaq/article/details/84872750" target="_blank" rel="nofollow">高级查询组件下拉框联动（三）</a>
+       <br>效果预览：
+       <br>1.省份和城市可以实现联动效果。
+       <br>2.可以自定义查询条件编辑器。如下拉树，单选按钮组。
+       <br>
+       <img src="/upload/2018_12/9916536_1544085327663_96526.png">
+       <br>
+       <pre>日期：2018-11-21<br>版本：v1.0.5<br>优化查询条件界面ui</pre>
+       <pre>日期：2018-11-20<br>版本：v1.0.5<br>新增功能：查询条件加一个“x”,点击后删除一个条件刷新一下页面</pre>
+       <pre>日期：2018-11-14<br>版本：v1.0.4<br>dynamicCondition插件升级版本1.0.4<br>1.新增初始条件设置功能。<br>2.优化查询条件显示。<br>3.支持下拉框范围查询<br>4.可以设置show属性为false，隐藏动态条件字段<br>5.优化下拉框编辑器。templet可以是select元素Id。<br>	例#sex对应的可以是&lt;select id="sex"&gt;<br>	不一定非得用script包裹起来。</pre>动态添加条件界面 
+       <br>
+       <img src="/layuiextend/img/demo4.png">
+       <br>
+       <br>使用方法：
+       <br>和table结合起来使用非常简单。只要配置tableId参数就能实现点击查询后刷新table数据。
+       <br>html：
+       <br>
+       <pre>&lt;div id="msg" style="margin-top:10px;margin-left:10px;"&gt;查询条件：&lt;/div&gt;	<br>   &lt;ul id="dynamicCondition" style="display:none;"&gt;<br>	&lt;li field="Layuiex.id" title="id" edit="text" layVerify="number"&gt;&lt;/li&gt;<br>	&lt;li field="Layuiex.name" title="姓名" edit="text" layVerify=""&gt;&lt;/li&gt;<br>	&lt;li field="Layuiex.sex" title="性别" edit="select" layVerify="number" templet="#dict-sex"&gt;&lt;/li&gt;<br>	&lt;li field="Layuiex.birthday" title="生日" edit="date" layVerify=""&gt;&lt;/li&gt;<br>	&lt;li field="Layuiex.phone" title="手机号码" edit="text" layVerify=""&gt;&lt;/li&gt;<br>	&lt;li field="Layuiex.email" title="邮箱" edit="text" layVerify=""&gt;&lt;/li&gt;<br>&lt;/ul&gt;<br>&lt;script type="text/html" id="toolbarBts"&gt;<br>	 &lt;div&gt;<br>	 	&lt;a class="layui-btn layui-btn-xs" onclick="layuiexSave()" #(printStyle(session,"/admin/layuiex/save"))&gt;新增&lt;/a&gt;<br>	 	&lt;a class="layui-btn layui-btn-xs" onclick="layuiexQuery()" #(printStyle(session,"/admin/layuiex/list"))&gt;查询&lt;/a&gt;<br>	 &lt;/div&gt;<br>&lt;/script&gt;<br>&lt;table class="layui-hide" id="listTable" lay-filter="listMainTable"&gt;&lt;/table&gt;</pre>js：
+       <br>
+       <pre>layui.config({<br>  base: '../../../layui_exts/' //设定扩展的Layui模块的所在目录，一般用于外部模块扩展<br>}).extend({<br>	dynamicCondition: 'dynamicCondition/dynamicCondition'<br>}).use(['table','form','dynamicCondition'], function(){<br>	var $=layui.$, table = layui.table, form = layui.table;<br>	var dynamicCondition = layui.dynamicCondition;<br>	var dc = dynamicCondition.create({<br>  		//通过容器选择器传入，也可以$("#dynamicCondition"),或者document.getElementById("dynamicCondition")<br>  		elem:"#dynamicCondition" <br>	  	,tableId:"listTableId" <br>		,conditionTextId:"#msg"<br>	});<br>  	dc.setCondition([["Layuiex.name","like","张三"],["Layuiex.sex",null,"1"],["Layuiex.birthday","between","2018-01-01","2018-12-31"]]);<br>	var tableDivHeight = 'full-'+ ($("#noTableDiv").height()+ 10);<br>  table.render({<br>    elem: '#listTable'<br>    ,url:'/xpl/admin/layuiex/list'<br>    ,method:"post"<br>    ,where: dynamicCondition.getInstance().buildRequestData ()<br>    ,sortType:'server'<br>    ,height: tableDivHeight<br>    ,cellMinWidth: 80 //全局定义常规单元格的最小宽度，layui 2.2.1 新增<br>    ,toolbar: '#toolbarBts'<br>    ,cols: [[<br>       {field:'layui_seq', title: '序号',width:80,align:'center' }<br>    	   ,{field:'id', title: 'id',sort:true} <br>    	   ,{field:'name', title: '姓名',sort:true} <br>    	   ,{field:'sex', title: '性别',sort:true,templet: '&lt;div&gt;{{ getDictLabel("dict-sex", d.sex) }}&lt;/div&gt;'} <br>    	   ,{field:'birthday', title: '生日',sort:true} <br>    	   ,{field:'phone', title: '手机号码',sort:true} <br>    	   ,{field:'email', title: '邮箱',sort:true} <br>      ,{fixed: 'right', width:178, align:'center', toolbar: '#barBtns',title: '操作'} //单元格内容水平居中<br>    ]]<br>  	,id: 'listTableId'<br>  	,page: true<br>  });</pre>关键2个地方需要配置：
+       <br>1. dynamicCondition.create传入配置参数tableId需要与table.render里的id属性对应。
+       <br>2.调用dc.setCondition方法设置初始条件。dc.setCondition参数说明：[item1,item2,item3 ...]
+       <br> dc.setCondition是一个数组，里面的元素item1也是数组。item1元素的值与复杂查询模式列对应的值一致。参考例子很容易理解。
+       <br>3.table.render里配置where: dynamicCondition.getInstance().buildRequestData ()，可以设置初始条件。
+       <br>
+       <br>
+       <br>
+       <br>使用文档参考： <a href="https://blog.csdn.net/xiaozaq/article/details/83662679" target="_blank" rel="nofollow">基于layui的动态添加条件查询ui插件</a>
+       <br>体验地址1：<a href="https://pelin0963.gitee.io/layuiextend//layui_exts/dynamicCondition/demo/index.html" target="_blank" rel="nofollow">动态添加条件查询Demo</a>
+       <br>体验地址2：<a href="http://xn--pzsz6a02k.xn--6qq986b3xl:9090/xpl/demo/dynamicCondition" target="_blank" rel="nofollow">带后台的查询demo</a>
+      </div> 
+     </div> 
+     <div class="layui-card fly-extend-doc"> 
+      <div class="layui-card-header"> 
+       <h3 class="layui-inline layui-this">下载</h3> 
+      </div> 
+      <div class="layui-card-body detail-body layui-text"> 
+       <div class="layui-btn-container"> <a href="/extend/9916536_1546568678615_83218.zip" target="_blank" class="layui-btn layui-btn-lg layui-btn-primary"> 立即下载 </a> <a href="https://gitee.com/pelin0963/layuiExtend/releases" target="_blank" class="layui-btn layui-btn-lg layui-btn-primary layui-border-red"> 去码云下载 </a>
+        <blockquote class="layui-elem-quote">
+          该扩展组件由第三方用户主动投递，并由其自身进行维护，本站仅做收集。 
+        </blockquote> 
+       </div> 
+      </div> 
+     </div> 
+    </div> 
+   </div>
+  </div>
+  <div class="fly-footer"> 
+   <p> Copyright © 2022 <a href="layui.windseeker.link">layui.windseeker.link</a> MIT Licensed</p>
+   <p> copyright © 2022 <a href="https://www.windseeker.link/" target="_blank">windseeker</a> all rights reserved.| <a href="http://beian.miit.gov.cn/" target="_blank">沪ICP备2021002849号-2</a></p>
+  </div>
+  <script src="/layui/dist/layui.js"></script>
+  <script src="/common/extend-common.js"></script>
+
+ </body>
+<script src="/common/common.js"></script>
+</html>

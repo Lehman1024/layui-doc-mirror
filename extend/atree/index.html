@@ -1,0 +1,133 @@
+<!doctype html>
+<html>
+ <head> 
+  <meta charset="utf-8"> 
+  <title>atree 树结构 atree - layui 第三方组件平台</title> 
+  <meta name="renderer" content="webkit"> 
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"> 
+  <meta name="description" content="对 layui 原有的 tree 进行扩展 (layui-plugin-atree)"> 
+  <link rel="stylesheet" href="/t/font_24081_60slu02pimt.css">
+  <link rel="stylesheet" href="/layui/dist/css/layui.css">
+  <link rel="stylesheet" href="/static/css/fly/global.css" charset="utf-8">
+  <link rel="stylesheet" href="/static/css/global.css" charset="utf-8">
+  <link rel="stylesheet" href="/static/css/global.css" charset="utf-8">
+ </head>
+ <body>
+  <div class="layui-header header header-extends" style="background-color: #24262F;"> 
+   <div class="layui-container"> <a class="logo" href="/"> <img src="/static/images/layui/logo.png" alt="layui"> </a>
+    <div class="layui-form component" lay-filter="LAY-site-header-component"></div> 
+    <ul class="layui-nav"> 
+     <li class="layui-nav-item layui-hide-xs"> <a href="/">框架</a> </li>
+     <li class="layui-nav-item layui-hide-xs layui-this"> <a href="/extend/index.html">扩展</a> </li>
+     <li class="layui-nav-item"> <a href="javascript:">周边</a>
+      <dl class="layui-nav-child layui-nav-child-c"> 
+       <dd lay-unselect> <a href="/alone.html" target="_blank">独立组件</a>
+       </dd> 
+       <dd class="layui-hide-sm layui-show-xs" lay-unselect> <a href="/extend/index.html">扩展组件</a>
+        <hr> 
+       </dd> 
+      </dl> </li> 
+    </ul> 
+   </div>
+  </div><!--[if lt IE 9]>  <script src="https://cdn.staticfile.org/html5shiv/r29/html5.min.js"></script>  <script src="https://cdn.staticfile.org/respond.js/1.4.2/respond.min.js"></script><![endif]--> 
+  <div class="fly-extend-banner fly-extend-banner-sm"> 
+   <div class="layui-carousel" id="FLY-extend-banner" data-height="200px"> 
+    <div carousel-item> 
+     <div style="background-image: url(/upload/2018_8/168_1535373858670_8825.jpg)">
+      <div style="background: rgba(0,0,0,.6)"></div> 
+     </div> 
+    </div> 
+   </div> 
+   <h1 class="fly-extend-banner-title">layui 第三方组件平台</h1> 
+   <div class="fly-extend-banner-release"> <a href="/extend/index.html" class="layui-btn layui-btn-lg">返回首页</a>
+   </div> 
+  </div>
+  <div class="fly-extend-detail layui-card"> 
+   <div class="layui-container"> 
+    <div class="fly-extend-list-header"> 
+     <h1 class="fly-extend-title layui-elip"> <a>atree 树结构</a> <span class="layui-badge layui-bg-green layui-hide-xs">atree</span> </h1> 
+     <div class="fly-extend-list-info"> <a href="/u/2393496/index.html" target="_blank" class="fly-extend-list-user" title="发布者"> <cite class="layui-hide-xs">sm**i</cite> <img src="/qqapp/101235792/204BDD122D35D07BCBBFA607D12B2F90/100" alt="sm**i"> </a>
+     </div> 
+    </div> 
+    <blockquote class="fly-extend-list-desc layui-elem-quote"> 
+     <p>对 layui 原有的 tree 进行扩展 (layui-plugin-atree)</p> 
+    </blockquote> 
+    <div class="fly-extend-list-bottom"> <span class="layui-inline">创建：2018-9-6 </span> 
+     <div class="layui-btn-container layui-extend-doc-edit"> 
+     </div> 
+    </div> 
+   </div>
+  </div>
+  <div class="layui-container"> 
+   <div class="layui-row layui-col-space20"> 
+    <div class="layui-col-sm3 layui-col-md2"> 
+     <div class="layui-card"> 
+      <ul class="fly-extend-doc-nav" lay-filter="extend-doc-nav"> 
+       <li class="layui-this" lay-id="doc"> <a href="javascript:"><i class="iconfont icon-wendang"></i> 文档</a> </li>
+       <li lay-id="download"> <a href="javascript:"><i class="iconfont icon-xiazai"></i> 下载</a> </li>
+      </ul> 
+     </div> 
+    </div> 
+    <div class="layui-col-sm9 layui-col-md10"> 
+     <div class="layui-card fly-extend-doc layui-show"> 
+      <div class="layui-card-header"> 
+       <h3 class="layui-inline layui-this">文档</h3> 
+      </div> 
+      <div class="layui-card-body detail-body photos layui-text">
+        项目介绍
+       <br>layui的tree扩展
+       <br>
+       <br>简易文档
+       <br>spreadAll 设置checkbox全部选中
+       <br>check勾选风格，不写没有勾选框
+       <br>props 设置key属性别名
+       <br>addBtnLabel：新增按钮标题
+       <br>deleteBtnLabel：删除按钮标题
+       <br>name：树显示的标题
+       <br>id：主键对应的字段名
+       <br>children：子类对应的字段名
+       <br>checkbox：选中对应的字段名
+       <br>spread：是否展开对应的字段名
+       <br>change选中回调函数
+       <br>val：选中的对象数组
+       <br>click点击标题回调函数
+       <br>item：当前点击的对象
+       <br>addClick：新增回调函数
+       <br>item：当前父节点的对象
+       <br>elem：当前节点的dom对象
+       <br>done：添加到dom节点的方法
+       <br>deleteClick：删除回调函数
+       <br>item：当前父节点的对象
+       <br>elem：当前节点的dom对象
+       <br>done：删除dom节点的方法
+       <br>
+       <br>本人一款基于vue+elementUI快速构建crud和form开源框架 
+       <br>avue 大家可以了解下 <a href="https://gitee.com/smallweigit/avue" target="_blank" rel="nofollow">https://gitee.com/smallweigit/avue</a>
+      </div> 
+     </div> 
+     <div class="layui-card fly-extend-doc"> 
+      <div class="layui-card-header"> 
+       <h3 class="layui-inline layui-this">下载</h3> 
+      </div> 
+      <div class="layui-card-body detail-body layui-text"> 
+       <div class="layui-btn-container"> <a href="/extend/2393496_1536201090648_45381.zip" target="_blank" class="layui-btn layui-btn-lg layui-btn-primary"> 立即下载 </a> <a href="https://gitee.com/smallweigit/layui-plugin-atree" target="_blank" class="layui-btn layui-btn-lg layui-btn-primary layui-border-red"> 去码云下载 </a>
+        <blockquote class="layui-elem-quote">
+          该扩展组件由第三方用户主动投递，并由其自身进行维护，本站仅做收集。 
+        </blockquote> 
+       </div> 
+      </div> 
+     </div> 
+    </div> 
+   </div>
+  </div>
+  <div class="fly-footer"> 
+   <p> Copyright © 2022 <a href="layui.windseeker.link">layui.windseeker.link</a> MIT Licensed</p>
+   <p> copyright © 2022 <a href="https://www.windseeker.link/" target="_blank">windseeker</a> all rights reserved.| <a href="http://beian.miit.gov.cn/" target="_blank">沪ICP备2021002849号-2</a></p>
+  </div>
+  <script src="/layui/dist/layui.js"></script>
+  <script src="/common/extend-common.js"></script>
+
+ </body>
+<script src="/common/common.js"></script>
+</html>

@@ -1,0 +1,122 @@
+<!doctype html>
+<html>
+ <head> 
+  <meta charset="utf-8"> 
+  <title>cardTable卡片表格 cardTable - layui 第三方组件平台</title> 
+  <meta name="renderer" content="webkit"> 
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"> 
+  <meta name="description" content="简单了封装了一个卡片式的表格，参考pear-admin的卡片界面，在此感谢；
+组件目前用于WaterCloud框架中，后端Net5，前端layui，开源MIT协议。
+演示地址在：https://watercloud.vip/page/cardTable.html"> 
+  <link rel="stylesheet" href="/t/font_24081_60slu02pimt.css">
+  <link rel="stylesheet" href="/layui/dist/css/layui.css">
+  <link rel="stylesheet" href="/static/css/fly/global.css" charset="utf-8">
+  <link rel="stylesheet" href="/static/css/global.css" charset="utf-8">
+  <link rel="stylesheet" href="/static/css/global.css" charset="utf-8">
+ </head>
+ <body>
+  <div class="layui-header header header-extends" style="background-color: #24262F;"> 
+   <div class="layui-container"> <a class="logo" href="/"> <img src="/static/images/layui/logo.png" alt="layui"> </a>
+    <div class="layui-form component" lay-filter="LAY-site-header-component"></div> 
+    <ul class="layui-nav"> 
+     <li class="layui-nav-item layui-hide-xs"> <a href="/">框架</a> </li>
+     <li class="layui-nav-item layui-hide-xs layui-this"> <a href="/extend/index.html">扩展</a> </li>
+     <li class="layui-nav-item"> <a href="javascript:">周边</a>
+      <dl class="layui-nav-child layui-nav-child-c"> 
+       <dd lay-unselect> <a href="/alone.html" target="_blank">独立组件</a>
+       </dd> 
+       <dd class="layui-hide-sm layui-show-xs" lay-unselect> <a href="/extend/index.html">扩展组件</a>
+        <hr> 
+       </dd> 
+      </dl> </li> 
+    </ul> 
+   </div>
+  </div><!--[if lt IE 9]>  <script src="https://cdn.staticfile.org/html5shiv/r29/html5.min.js"></script>  <script src="https://cdn.staticfile.org/respond.js/1.4.2/respond.min.js"></script><![endif]--> 
+  <div class="fly-extend-banner fly-extend-banner-sm"> 
+   <div class="layui-carousel" id="FLY-extend-banner" data-height="200px"> 
+    <div carousel-item> 
+     <div style="background-image: url(/upload/2018_8/168_1535373858670_8825.jpg)">
+      <div style="background: rgba(0,0,0,.6)"></div> 
+     </div> 
+    </div> 
+   </div> 
+   <h1 class="fly-extend-banner-title">layui 第三方组件平台</h1> 
+   <div class="fly-extend-banner-release"> <a href="/extend/index.html" class="layui-btn layui-btn-lg">返回首页</a>
+   </div> 
+  </div>
+  <div class="fly-extend-detail layui-card"> 
+   <div class="layui-container"> 
+    <div class="fly-extend-list-header"> 
+     <h1 class="fly-extend-title layui-elip"> <a>cardTable卡片表格</a> <span class="layui-badge layui-bg-green layui-hide-xs">cardTable</span> </h1> 
+     <div class="fly-extend-list-info"> <a href="/u/55084848/index.html" target="_blank" class="fly-extend-list-user" title="发布者"> <cite class="layui-hide-xs">∑希**∞</cite> <img src="/g" alt="∑希**∞"> </a>
+     </div> 
+    </div> 
+    <blockquote class="fly-extend-list-desc layui-elem-quote"> 
+     <p>简单了封装了一个卡片式的表格，参考pear-admin的卡片界面，在此感谢； 组件目前用于WaterCloud框架中，后端Net5，前端layui，开源MIT协议。 演示地址在：https://watercloud.vip/page/cardTable.html</p> 
+    </blockquote> 
+    <div class="fly-extend-list-bottom"> <span class="layui-inline">更新：2021-3-22 </span> <span class="layui-inline">创建：2021-1-15 </span> 
+     <div class="layui-btn-container layui-extend-doc-edit"> 
+     </div> 
+    </div> 
+   </div>
+  </div>
+  <div class="layui-container"> 
+   <div class="layui-row layui-col-space20"> 
+    <div class="layui-col-sm3 layui-col-md2"> 
+     <div class="layui-card"> 
+      <ul class="fly-extend-doc-nav" lay-filter="extend-doc-nav"> 
+       <li class="layui-this" lay-id="doc"> <a href="javascript:"><i class="iconfont icon-wendang"></i> 文档</a> </li>
+       <li lay-id="download"> <a href="javascript:"><i class="iconfont icon-xiazai"></i> 下载</a> </li>
+       <li lay-id=""> <a href="https://gitee.com/qian_wei_hong/layui-card-table" rel="nofollow" target="_blank"> <i class="iconfont icon-kaifashili"></i> 来源 </a> </li>
+      </ul> 
+     </div> 
+    </div> 
+    <div class="layui-col-sm9 layui-col-md10"> 
+     <div class="layui-card fly-extend-doc layui-show"> 
+      <div class="layui-card-header"> 
+       <h3 class="layui-inline layui-this">文档</h3> 
+      </div> 
+      <div class="layui-card-body detail-body photos layui-text"> 
+       <img src="/upload/2020_12/55084848_1608524834707_25251.png">
+       <br>组件引用方法
+       <br>
+       <pre>layui.config({<br>  base: '../js/layui_exts/' //配置 layui 第三方扩展组件存放的基础目录<br>}).extend({<br>  cardTable: 'cardTable/cardTable' <br>}).use(['cardTable'], function(){<br>.....</pre>整个扩展配置有以下配置参数，可灵活运用，满足不同需求
+       <br>
+       <pre>{	<br>	elem: "#currentTableId",// 构建的模型<br>		url: "",// 数据 url 连接<br>		loading: true,//是否加载<br>		limit: 0, //每页数量默认是每行数量的双倍<br>		linenum: 4, //每行数量 2,3,4,6<br>		currentPage: 1,//当前页<br>		limits:[],     //页码<br>		page: true, //是否分页<br>		layout: ['count', 'prev', 'page', 'next','limit', 'skip'],//分页控件<br>		request: {<br>			pageName: 'page' //页码的参数名称，默认：page<br>			, limitName: 'limit' //每页数据量的参数名，默认：limit<br>			, idName: 'id'       //主键名称，默认：id<br>			, titleName: 'title' //标题名称，默认：title<br>			, imageName: 'image' //图片地址，默认：image<br>			, remarkName: 'remark' //备注名称，默认：remark<br>			, timeName: 'time' //时间名称，默认：time<br>		},<br>		response: {<br>			statusName: 'code' //规定数据状态的字段名称，默认：code<br>			, statusCode: 0 //规定成功的状态码，默认：0<br>			, msgName: 'msg' //规定状态信息的字段名称，默认：msg<br>			, countName: 'count' //规定数据总数的字段名称，默认：count<br>			, dataName: 'data' //规定数据列表的字段名称，默认：data<br>		},<br>		// 完 成 函 数<br>		done: function () {<br><br>		}<br>}</pre>组件含有三个方法
+       <br>1、render渲染方法
+       <br>
+       <pre>            cardTable.render({<br>                elem: '#currentTableId',<br>				url: '../json/card.json',<br>			})</pre>2、reload重载方法（查询可用）
+       <br>
+       <pre>                cardTable.reload("currentTableId", {<br>                    where: queryJson,<br>                });</pre>3、getChecked获取选中卡片参数（用于跟后端交互）
+       <br>
+       <pre>               cardTable.getChecked("currentTableId"）</pre>返回数据默认格式
+       <br>
+       <pre>{<br>	"code": 0,<br>	"msg": "...",<br>	"count": 2,<br>	"data": [{<br>		"id": "1",<br>		"image": "https://gw.alipayobjects.com/zos/rmsportal/gLaIAoVWTtLbBWZNYEMg.png",<br>		"title": "Alipay",<br>		"remark": "那是一种内在的东西， 他们到达不了，也无法触及的",<br>		"time": "几秒前"<br>	},{<br>		"id": "2",<br>		"image": "https://gw.alipayobjects.com/zos/rmsportal/iXjVmWVHbCJAyqvDxdtx.png",<br>		"title": "Layui",<br>		"remark": "生命就像一盒巧克力，结果往往出人意料",<br>		"time": "几秒前"<br>	}<br>}</pre> 
+      </div> 
+     </div> 
+     <div class="layui-card fly-extend-doc"> 
+      <div class="layui-card-header"> 
+       <h3 class="layui-inline layui-this">下载</h3> 
+      </div> 
+      <div class="layui-card-body detail-body layui-text"> 
+       <div class="layui-btn-container"> <a href="https://gitee.com/qian_wei_hong/layui-card-table" target="_blank" class="layui-btn layui-btn-lg layui-btn-primary layui-border-red"> 去码云下载 </a>
+        <blockquote class="layui-elem-quote">
+          该扩展组件由第三方用户主动投递，并由其自身进行维护，本站仅做收集。 
+        </blockquote> 
+       </div> 
+      </div> 
+     </div> 
+    </div> 
+   </div>
+  </div>
+  <div class="fly-footer"> 
+   <p> Copyright © 2022 <a href="layui.windseeker.link">layui.windseeker.link</a> MIT Licensed</p>
+   <p> copyright © 2022 <a href="https://www.windseeker.link/" target="_blank">windseeker</a> all rights reserved.| <a href="http://beian.miit.gov.cn/" target="_blank">沪ICP备2021002849号-2</a></p>
+  </div>
+  <script src="/layui/dist/layui.js"></script>
+  <script src="/common/extend-common.js"></script>
+
+ </body>
+<script src="/common/common.js"></script>
+</html>

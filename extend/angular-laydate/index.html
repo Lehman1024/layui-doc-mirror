@@ -1,0 +1,177 @@
+<!doctype html>
+<html>
+ <head> 
+  <meta charset="utf-8"> 
+  <title>laydate 的 angular 组件 angular-laydate - layui 第三方组件平台</title> 
+  <meta name="renderer" content="webkit"> 
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"> 
+  <meta name="description" content="laydate 的  angular 组件， 通过 anglar 指令使用 laydate"> 
+  <link rel="stylesheet" href="/t/font_24081_60slu02pimt.css">
+  <link rel="stylesheet" href="/layui/dist/css/layui.css">
+  <link rel="stylesheet" href="/static/css/fly/global.css" charset="utf-8">
+  <link rel="stylesheet" href="/static/css/global.css" charset="utf-8">
+  <link rel="stylesheet" href="/static/css/global.css" charset="utf-8">
+ </head>
+ <body>
+  <div class="layui-header header header-extends" style="background-color: #24262F;"> 
+   <div class="layui-container"> <a class="logo" href="/"> <img src="/static/images/layui/logo.png" alt="layui"> </a>
+    <div class="layui-form component" lay-filter="LAY-site-header-component"></div> 
+    <ul class="layui-nav"> 
+     <li class="layui-nav-item layui-hide-xs"> <a href="/">框架</a> </li>
+     <li class="layui-nav-item layui-hide-xs layui-this"> <a href="/extend/index.html">扩展</a> </li>
+     <li class="layui-nav-item"> <a href="javascript:">周边</a>
+      <dl class="layui-nav-child layui-nav-child-c"> 
+       <dd lay-unselect> <a href="/alone.html" target="_blank">独立组件</a>
+       </dd> 
+       <dd class="layui-hide-sm layui-show-xs" lay-unselect> <a href="/extend/index.html">扩展组件</a>
+        <hr> 
+       </dd> 
+      </dl> </li> 
+    </ul> 
+   </div>
+  </div><!--[if lt IE 9]>  <script src="https://cdn.staticfile.org/html5shiv/r29/html5.min.js"></script>  <script src="https://cdn.staticfile.org/respond.js/1.4.2/respond.min.js"></script><![endif]--> 
+  <div class="fly-extend-banner fly-extend-banner-sm"> 
+   <div class="layui-carousel" id="FLY-extend-banner" data-height="200px"> 
+    <div carousel-item> 
+     <div style="background-image: url(/upload/2018_8/168_1535373858670_8825.jpg)">
+      <div style="background: rgba(0,0,0,.6)"></div> 
+     </div> 
+    </div> 
+   </div> 
+   <h1 class="fly-extend-banner-title">layui 第三方组件平台</h1> 
+   <div class="fly-extend-banner-release"> <a href="/extend/index.html" class="layui-btn layui-btn-lg">返回首页</a>
+   </div> 
+  </div>
+  <div class="fly-extend-detail layui-card"> 
+   <div class="layui-container"> 
+    <div class="fly-extend-list-header"> 
+     <h1 class="fly-extend-title layui-elip"> <a>laydate 的 angular 组件</a> <span class="layui-badge layui-bg-green layui-hide-xs">angular-laydate</span> </h1> 
+     <div class="fly-extend-list-info"> <a href="/u/32372424/index.html" target="_blank" class="fly-extend-list-user" title="发布者"> <cite class="layui-hide-xs">知洛</cite> <img src="/images/fly/avatar/9.jpg" alt="知洛"> </a>
+     </div> 
+    </div> 
+    <blockquote class="fly-extend-list-desc layui-elem-quote"> 
+     <p>laydate 的 angular 组件， 通过 anglar 指令使用 laydate</p> 
+    </blockquote> 
+    <div class="fly-extend-list-bottom"> <span class="layui-inline">更新：2019-1-11 </span> <span class="layui-inline">创建：2019-1-17 </span> 
+     <div class="layui-btn-container layui-extend-doc-edit"> 
+     </div> 
+    </div> 
+   </div>
+  </div>
+  <div class="layui-container"> 
+   <div class="layui-row layui-col-space20"> 
+    <div class="layui-col-sm3 layui-col-md2"> 
+     <div class="layui-card"> 
+      <ul class="fly-extend-doc-nav" lay-filter="extend-doc-nav"> 
+       <li class="layui-this" lay-id="doc"> <a href="javascript:"><i class="iconfont icon-wendang"></i> 文档</a> </li>
+       <li lay-id="download"> <a href="javascript:"><i class="iconfont icon-xiazai"></i> 下载</a> </li>
+      </ul> 
+     </div> 
+    </div> 
+    <div class="layui-col-sm9 layui-col-md10"> 
+     <div class="layui-card fly-extend-doc layui-show"> 
+      <div class="layui-card-header"> 
+       <h3 class="layui-inline layui-this">文档</h3> 
+      </div> 
+      <div class="layui-card-body detail-body photos layui-text">
+        laydate 的 angular 组件， 通过 anglar 指令使用 laydate
+       <br>
+       <br>
+       <br># angular-laydate
+       <br>[layDate](/laydate/) 日期与时间组件 的 angular 集成
+       <br>
+       <br>
+       <br>## Usage
+       <br>
+       <br>```js
+       <br>var app = angular.module('myApp', ['$nglaydate']);
+       <br>
+       <br>```
+       <br>## Samples
+       <br>[Samples](index.html)
+       <br>
+       <br>## support directive
+       <br>* ng-laydate
+       <br>* ng-laydatetime
+       <br>* ng-layyear
+       <br>* ng-laymonth
+       <br>* ng-laytime
+       <br>
+       <br>
+       <br>```html
+       <br>&lt;input type="text" class="ng-laydate" ng-model="value"&gt;
+       <br>
+       <br>&lt;input type="text" class="ng-laydatetime" ng-model="value"&gt;
+       <br>
+       <br>&lt;input type="text" class="ng-layyear" ng-model="value"&gt;
+       <br>
+       <br>&lt;input type="text" class="ng-laymonth" ng-model="value"&gt;
+       <br>
+       <br>&lt;input type="text" class="ng-laytime" ng-model="value"&gt;
+       <br>```
+       <br>
+       <br>## support options attr
+       <br>* laydate-type
+       <br>* laydate-format
+       <br>* laydate-max
+       <br>* laydate-min
+       <br>* laydate-range
+       <br>* laydate-ready
+       <br>* laydate-done
+       <br>* laydate-options
+       <br>
+       <br>
+       <br>#####
+       <br>only ‘ng-laydate’ support ‘laydate-type’
+       <br>
+       <br>```html
+       <br>
+       <br>&lt;div&gt;&lt;label&gt;date&lt;/label&gt;&lt;input type="text" class="ng-laydate" laydate-type="'date'"&gt;&lt;/div&gt;
+       <br>&lt;div&gt;&lt;label&gt;datetime&lt;/label&gt;&lt;input type="text" class="ng-laydate" laydate-type="'datetime'"&gt;&lt;/div&gt;
+       <br>&lt;div&gt;&lt;label&gt;year&lt;/label&gt;&lt;input type="text" class="ng-laydate" laydate-type="'year'"&gt;&lt;/div&gt;
+       <br>&lt;div&gt;&lt;label&gt;month&lt;/label&gt;&lt;input type="text" class="ng-laydate" laydate-type="'month'"&gt;&lt;/div&gt;
+       <br>&lt;div&gt;&lt;label&gt;time&lt;/label&gt;&lt;input type="text" class="ng-laydate" laydate-type="'time'"&gt;&lt;/div&gt;
+       <br>
+       <br>&lt;div&gt;&lt;label&gt;format&lt;/label&gt;&lt;input type="text" class="ng-laydatetime" laydate-format="'yyyy-MM-ddTHH:mm:ss'"&gt;&lt;/div&gt;
+       <br>&lt;div&gt;&lt;label&gt;format&lt;/label&gt;&lt;input type="text" class="ng-laydate" laydate-format="'yyyy-MM-dd HH:mm:ss'"&gt;&lt;/div&gt;
+       <br>
+       <br>&lt;div&gt;&lt;label&gt;min &amp; max&lt;/label&gt;&lt;input type="text" class="ng-laydatetime" laydate-min="'2019-01-01'" laydate-max="'2019-01-25'"&gt;&lt;/div&gt;
+       <br>&lt;div&gt;&lt;label&gt;min &amp; max&lt;/label&gt;&lt;input type="text" class="ng-laydate" laydate-min="'2019-01-01'" laydate-max="'2019-01-25'"&gt;&lt;/div&gt;
+       <br>
+       <br>&lt;div&gt;&lt;label&gt;range true&lt;/label&gt;&lt;input type="text" class="ng-laydate" laydate-range="true"&gt;&lt;/div&gt;
+       <br>&lt;div&gt;&lt;label&gt;range custom&lt;/label&gt;&lt;input type="text" class="ng-layyear" laydate-range="'='"&gt;&lt;/div&gt;
+       <br>
+       <br>&lt;div&gt;&lt;label&gt;option range&lt;/label&gt;&lt;input type="text" class="ng-laydate" laydate-options="{range:true}"&gt;&lt;/div&gt;
+       <br>&lt;div&gt;&lt;label&gt;option value&lt;/label&gt;&lt;input type="text" class="ng-laydate" laydate-options="{value: '2019-01-01'}"&gt;&lt;/div&gt;
+       <br>
+       <br>&lt;div&gt;&lt;label&gt;ready&lt;/label&gt;&lt;input type="text" class="ng-laydate" laydate-format="'yyyy-MM-dd'" laydate-range="true" ng-model="default" laydate-ready="ready"&gt;&lt;/div&gt;
+       <br>&lt;div&gt;&lt;label&gt;done&lt;/label&gt;&lt;input type="text" class="ng-laydate" laydate-range="true" ng-model="default" laydate-done="done"&gt;&lt;/div&gt;
+       <br>``` 
+      </div> 
+     </div> 
+     <div class="layui-card fly-extend-doc"> 
+      <div class="layui-card-header"> 
+       <h3 class="layui-inline layui-this">下载</h3> 
+      </div> 
+      <div class="layui-card-body detail-body layui-text"> 
+       <div class="layui-btn-container"> <a href="/extend/32372424_1547204135713_92502.rar" target="_blank" class="layui-btn layui-btn-lg layui-btn-primary"> 立即下载 </a> <a href="https://github.com/waveng/angular-laydate" target="_blank" class="layui-btn layui-btn-lg layui-btn-primary layui-border-black"> 去 GitHub 下载 </a>
+        <blockquote class="layui-elem-quote">
+          该扩展组件由第三方用户主动投递，并由其自身进行维护，本站仅做收集。 
+        </blockquote> 
+       </div> 
+      </div> 
+     </div> 
+    </div> 
+   </div>
+  </div>
+  <div class="fly-footer"> 
+   <p> Copyright © 2022 <a href="layui.windseeker.link">layui.windseeker.link</a> MIT Licensed</p>
+   <p> copyright © 2022 <a href="https://www.windseeker.link/" target="_blank">windseeker</a> all rights reserved.| <a href="http://beian.miit.gov.cn/" target="_blank">沪ICP备2021002849号-2</a></p>
+  </div>
+  <script src="/layui/dist/layui.js"></script>
+  <script src="/common/extend-common.js"></script>
+
+ </body>
+<script src="/common/common.js"></script>
+</html>

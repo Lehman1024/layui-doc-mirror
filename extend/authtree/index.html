@@ -1,0 +1,267 @@
+<!doctype html>
+<html>
+ <head> 
+  <meta charset="utf-8"> 
+  <title>authtree 无限级权限控制树 authtree - layui 第三方组件平台</title> 
+  <meta name="renderer" content="webkit"> 
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"> 
+  <meta name="description" content="layui 自身提供一个 tree 树形菜单，但是并不适用于权限控制中，比如：当我需要选择用户组的权限（树形结构），需要使用 form 提交用户所选权限数据的时候。"> 
+  <link rel="stylesheet" href="/t/font_24081_60slu02pimt.css">
+  <link rel="stylesheet" href="/layui/dist/css/layui.css">
+  <link rel="stylesheet" href="/static/css/fly/global.css" charset="utf-8">
+  <link rel="stylesheet" href="/static/css/global.css" charset="utf-8">
+  <link rel="stylesheet" href="/static/css/global.css" charset="utf-8">
+ </head>
+ <body>
+  <div class="layui-header header header-extends" style="background-color: #24262F;"> 
+   <div class="layui-container"> <a class="logo" href="/"> <img src="/static/images/layui/logo.png" alt="layui"> </a>
+    <div class="layui-form component" lay-filter="LAY-site-header-component"></div> 
+    <ul class="layui-nav"> 
+     <li class="layui-nav-item layui-hide-xs"> <a href="/">框架</a> </li>
+     <li class="layui-nav-item layui-hide-xs layui-this"> <a href="/extend/index.html">扩展</a> </li>
+     <li class="layui-nav-item"> <a href="javascript:">周边</a>
+      <dl class="layui-nav-child layui-nav-child-c"> 
+       <dd lay-unselect> <a href="/alone.html" target="_blank">独立组件</a>
+       </dd> 
+       <dd class="layui-hide-sm layui-show-xs" lay-unselect> <a href="/extend/index.html">扩展组件</a>
+        <hr> 
+       </dd> 
+      </dl> </li> 
+    </ul> 
+   </div>
+  </div><!--[if lt IE 9]>  <script src="https://cdn.staticfile.org/html5shiv/r29/html5.min.js"></script>  <script src="https://cdn.staticfile.org/respond.js/1.4.2/respond.min.js"></script><![endif]--> 
+  <div class="fly-extend-banner fly-extend-banner-sm"> 
+   <div class="layui-carousel" id="FLY-extend-banner" data-height="200px"> 
+    <div carousel-item> 
+     <div style="background-image: url(/upload/2018_8/168_1535373858670_8825.jpg)">
+      <div style="background: rgba(0,0,0,.6)"></div> 
+     </div> 
+    </div> 
+   </div> 
+   <h1 class="fly-extend-banner-title">layui 第三方组件平台</h1> 
+   <div class="fly-extend-banner-release"> <a href="/extend/index.html" class="layui-btn layui-btn-lg">返回首页</a>
+   </div> 
+  </div>
+  <div class="fly-extend-detail layui-card"> 
+   <div class="layui-container"> 
+    <div class="fly-extend-list-header"> 
+     <h1 class="fly-extend-title layui-elip"> <a>authtree 无限级权限控制树</a> <span class="layui-badge layui-bg-green layui-hide-xs">authtree</span> </h1> 
+     <div class="fly-extend-list-info"> <a href="/u/11634672/index.html" target="_blank" class="fly-extend-list-user" title="发布者"> <cite class="layui-hide-xs">藏锋**丨</cite> <img src="/qqapp/101235792/905B6DB06066DB844F6F30D4E770668F/100" alt="藏锋**丨"> </a>
+     </div> 
+    </div> 
+    <blockquote class="fly-extend-list-desc layui-elem-quote"> 
+     <p>layui 自身提供一个 tree 树形菜单，但是并不适用于权限控制中，比如：当我需要选择用户组的权限（树形结构），需要使用 form 提交用户所选权限数据的时候。</p> 
+    </blockquote> 
+    <div class="fly-extend-list-bottom"> <span class="layui-inline">更新：2019-7-20 </span> <span class="layui-inline">创建：2018-8-29 </span> 
+     <div class="layui-btn-container layui-extend-doc-edit"> 
+     </div> 
+    </div> 
+   </div>
+  </div>
+  <div class="layui-container"> 
+   <div class="layui-row layui-col-space20"> 
+    <div class="layui-col-sm3 layui-col-md2"> 
+     <div class="layui-card"> 
+      <ul class="fly-extend-doc-nav" lay-filter="extend-doc-nav"> 
+       <li class="layui-this" lay-id="doc"> <a href="javascript:"><i class="iconfont icon-wendang"></i> 文档</a> </li>
+       <li lay-id="download"> <a href="javascript:"><i class="iconfont icon-xiazai"></i> 下载</a> </li>
+      </ul> 
+     </div> 
+    </div> 
+    <div class="layui-col-sm9 layui-col-md10"> 
+     <div class="layui-card fly-extend-doc layui-show"> 
+      <div class="layui-card-header"> 
+       <h3 class="layui-inline layui-this">文档</h3> 
+      </div> 
+      <div class="layui-card-body detail-body photos layui-text">
+        layui自身提供一个tree树形菜单，但是并不适用于权限控制中，比如：选择用户组的权限（树形结构），需要使用form提交用户所选权限数据。
+       <br>项目中遇到了此类需求，所以特意封装了一个扩展用于渲染此类操作。
+       <br>github: <a href="https://github.com/wangerzi/layui-authtree" target="_blank" rel="nofollow">https://github.com/wangerzi/layui-authtree</a>
+       <br>
+       <div class="layui-elem-quote">
+         特别注意：权限树的渲染目标需要在 .layui-form .layui-item下，否则将无法渲染出样式。
+       </div>
+       <div class="layui-elem-quote">
+        环境提示：预览环境需要部署在服务器下，不然无法异步获取权限树的数据
+       </div>
+       <div class="layui-elem-quote">
+        版本更新提示：v0.3 将inputname(表单名)、layfilter(lay-filter属性)和新增的openall(默认展开全部)配置更正为以对象的形式传递，覆盖更新后请注意此变化。
+       </div>
+       <hr>
+       <div class="layui-elem-quote">
+        功能演示：
+       </div>
+       <img src="https://raw.githubusercontent.com/wangerzi/layui-authtree/master/screenGIF.gif"> 
+       <br>
+       <div class="layui-elem-quote">
+        在线演示
+       </div>最新插件演示地址：
+       <br> <a href="http://authtree.wj2015.com/" target="_blank" rel="nofollow">http://authtree.wj2015.com/</a>
+       <br>
+       <br>
+       <div class="layui-elem-quote">
+        沟通交流
+       </div>QQ群号：789188686
+       <br>
+       <img src="https://raw.githubusercontent.com/wangerzi/layui-authtree/master/qq_group_qrcode.png"> 
+       <br>
+       <br>
+       <div class="layui-elem-quote">
+        社区期望收集
+       </div>如果您有好的建议或者想法，可以回帖或者发送到我的邮箱( admin@<a href="javascript:" class="fly-aite">wj2015.com</a> )，如果建议合适，我将收集于此便于以后更新。
+       <br>
+       <img src="/upload/2018_11/11634672_1542620829467_98911.png">
+       <br>
+       <hr>
+       <div class="layui-elem-quote">
+        快速上手
+       </div>由于插件规模扩大和功能的增加，导致插件上手难度有一定的增加。但如果只使用核心功能，其实没有必要去研究插件的所有方法，故在此把此插件解决核心需求的方法展示出来。
+       <br>
+       <img src="/upload/2018_10/11634672_1539135295019_98915.png">
+       <br>
+       <pre>&lt;form class="layui-form"&gt;<br>    &lt;div class="layui-form-item"&gt;<br>        &lt;label class="layui-form-label"&gt;角色名称&lt;/label&gt;<br>        &lt;div class="layui-input-block"&gt;<br>            &lt;input class="layui-input" type="text" name="name" placeholder="请输入角色名称" /&gt;<br>        &lt;/div&gt;<br>    &lt;/div&gt;<br>    &lt;div class="layui-form-item"&gt;<br>        &lt;label class="layui-form-label"&gt;选择权限&lt;/label&gt;<br>        &lt;div class="layui-input-block"&gt;<br>            &lt;div id="LAY-auth-tree-index"&gt;&lt;/div&gt;<br>        &lt;/div&gt;<br>    &lt;/div&gt;<br>    &lt;div class="layui-form-item"&gt;<br>        &lt;div class="layui-input-block"&gt;<br>            &lt;button class="layui-btn" type="submit" lay-submit lay-filter="LAY-auth-tree-submit"&gt;提交&lt;/button&gt;<br>            &lt;button class="layui-btn layui-btn-primary" type="reset"&gt;重置&lt;/button&gt;<br>        &lt;/div&gt;<br>    &lt;/div&gt;<br>&lt;/form&gt;</pre>
+       <img src="/upload/2018_10/11634672_1539135373548_55768.png">
+       <br>
+       <pre>layui.config({<br>	base: 'extends/',<br>}).extend({<br>	authtree: 'authtree',<br>});</pre>
+       <img src="/upload/2018_10/11634672_1539135426287_85043.png">
+       <br>
+       <pre>layui.use(['jquery', 'authtree', 'form', 'layer'], function(){<br>	var $ = layui.jquery;<br>	var authtree = layui.authtree;<br>	var form = layui.form;<br>	var layer = layui.layer;<br>	// 一般来说，权限数据是异步传递过来的<br>	$.ajax({<br>		url: 'tree.json',<br>		dataType: 'json',<br>		success: function(data){<br>            var trees = data.data.trees;<br>            // 如果后台返回的不是树结构，请使用 authtree.listConvert 转换<br>            authtree.render('#LAY-auth-tree-index', trees, {<br>				inputname: 'authids[]', <br>				layfilter: 'lay-check-auth', <br>				autowidth: true,<br>			});<br>        }<br>    });<br>});</pre>至此，一个最基础的权限树就已经完成了，如果想实现演示GIF内的各种扩展功能，请继续往下看，并参考源码
+       <br>
+       <hr>
+       <div class="layui-elem-quote">
+        数据库设计和后台程序参考
+       </div>正在完善中....
+       <br>
+       <br>
+       <div class="layui-elem-quote">
+        函数列表
+       </div>
+       <img src="/upload/2018_11/11634672_1542620889456_10271.png">
+       <br>
+       <br>
+       <div class="layui-elem-quote">
+        参数配置：
+       </div>render 参数配置
+       <br>render()函数是本插件的核心方法，调用 `render(dst, trees, opt)` 函数时，opt 中可以传递的参数如下
+       <br>
+       <img src="/upload/2018_11/11634672_1542621271281_49778.png">
+       <br>
+       <br>
+       <div class="layui-elem-quote">
+         **自动选中父级节点和自动取消父级选中 用法描述：**
+        <br>
+        <br>自动选中父级节点：开启后，选中某节点，会将其上层所有未选中父节点设为选中，并且将其下层所有节点设为选中；取消选中某节点，其所有子节点均取消。
+        <br>自动取消父级节点：开启后，取消选中某一子节点，当其兄弟节点均处于未选中状态，自动取消父级节点
+        <br>
+        <br>两种状态一般同时开启，或者同时关闭，不然可能体验有点奇怪
+       </div> treeConvertSelect参数配置
+       <br>`treeConverSelect` 是用于树转换为『单选树』的方法，其中 opt 参数如下
+       <br>
+       <img src="/upload/2018_11/11634672_1542620975403_22893.png">
+       <br>
+       <br>listConvert 参数配置
+       <br>listConvert 是用于转换列表和树结构的方法，参数比较灵活，调用 `listConvert(list, opt)` 时，opt可传入参数如下
+       <br>
+       <img src="/upload/2018_10/11634672_1539135878447_32675.png">
+       <br>
+       <img src="/upload/2018_10/11634672_1539135920787_87356.png">
+       <br>
+       <br>
+       <div class="layui-elem-quote">
+        后台编辑权限API代码示例（PHP）
+       </div>
+       <pre>&lt;?php<br>$role_id = $_GET['role_id'];<br>$auth_list = .....;// 获取数据库中 权限表数据<br>$role_auth_list = ....;// 获取数据库中某个角色的 角色-权限表数据<br><br>$data = [<br>    'code' =&gt; 0,<br>    'msg'  =&gt; '获取成功',<br>    'data' =&gt; [<br>        'list' =&gt; $auth_list,<br>        'checkedId' =&gt; array_column($role_auth_list, 'authid'),<br>    ],<br>];<br>echo json_encode($data);</pre>
+       <div class="layui-elem-quote">
+        API返回数据示例
+       </div>
+       <pre>{<br>  "code": 0,<br>  "msg": "获取成功",<br>  "data": {<br>    "list": [<br>      { "id": 1, "name": "用户管理", "pid": 0 },<br>      { "id": 2, "name": "用户组管理", "pid": 0 },<br>      { "id": 3, "name": "角色管理", "pid": 2 },<br>      { "id": 4, "name": "添加角色", "pid":  3},<br>      { "id": 5, "name": "角色列表", "pid": 3 },<br>      { "id": 6, "name": "管理员管理", "pid": 0 },<br>      { "id": 7, "name": "添加管理员", "pid": 6 },<br>      { "id": 8, "name": "管理员列表", "pid": 6 }<br>    ],<br>    "checkedId": [ 1,  2, 3, 4 ]<br>  }<br>}</pre>
+       <div class="layui-elem-quote">
+        列表转树前端使用样例
+       </div>这里注意 `startPid` 参数的数据类型需要和列表返回的一致，`id` 和 `pid` 的数据类型需一致，如果列表返回的id数据均为字符串，则 startPid 应该为 `'0'`
+       <br>
+       <pre>var trees = authtree.listConvert(res.data.list, {<br>    primaryKey: 'id'<br>    ,startPid: 0<br>    ,parentKey: 'pid'<br>    ,nameKey: 'name'<br>    ,valueKey: 'id'<br>    ,checkedKey: res.data.checkedId<br>});</pre>
+       <div class="layui-elem-quote">
+        监听事件：
+       </div>
+       <img src="/upload/2018_9/11634672_1537689529490_85318.jpg">
+       <br>
+       <div class="layui-elem-quote">
+        功能概览：
+       </div>1. 支持无限级渲染结构树
+       <br>2. 点击深层次节点，父级节点中没有被选中的节点会被自动选中
+       <br>3. 单独点击父节点，子节点会全部 选中/去选中
+       <br>4. 支持默认选中（适用于编辑权限）
+       <br>5. 支持自定义表单名称（上传数据的name）
+       <br>6. 支持自定义lay-filter用于监听权限树选中(v0.2新增)
+       <br>7. 支持获取选中叶子结点信息(v0.2新增)
+       <br>8. 自适应标签名字长度配置(v0.5新增)
+       <br>9. 支持各种方式花样获取数据（v1.0 新增，具体参考函数表）
+       <br>10. 支持普通列表转树(v1.1 支持)
+       <br>11. 支持自动展开所有选中节点(v1.1 支持)
+       <br>12. 支持列表转树(v1.1 支持)
+       <br>13. 支持双击展开子节点(v1.1 支持)
+       <br>14. 支持配置渲染参数、单选树、下拉树(v1.2 支持)
+       <br>
+       <hr>
+       <div class="layui-elem-quote">
+         更新记录：
+       </div>2018-11-19 v1.2 支持单选树、下拉树、展开/收起图标配置
+       <br>2018-09-23 v1.1 新增自动展开所有选中节点,列表转树,支持双击展开子节点等方法,消除BUG
+       <br>2018-09-23 v1.0 正式版，方法效率优化以及新增监听事件，消除各种BUG
+       <br>2018-09-19 v1.0 完善权限树的方法，新增方法请见函数列表和演示样例
+       <br>2018-05-03 v0.4 新增获取全部数据、全部已选数据、全部未选数据方法，修复编码问题。
+       <br>2018-05-03 v.03 新增默认展开全部的配置项(openall)，并将部分配置项作为可选参数通过对象传递。
+       <br>2018-03-30 v0.2 修复一级菜单没有子菜单时显示错位的问题，支持获取叶子结点数据，支持自定义lay-filter
+       <br>2018-03-24 v0.1 最初版本
+       <br>
+       <hr>
+       <div class="layui-elem-quote">
+        测试用权限树结构(tree.json)：
+       </div>
+       <pre>{<br>  "code": 0,<br>  "msg": "获取成功",<br>  "data": {<br>    "trees":[<br>    	{"name": "用户管理", "value": "xsgl", "checked": true, "list": [<br>    		{"name": "用户组", "value": "xsgl-basic", "checked": true, "list": [<br>    			{"name": "本站用户", "value": "xsgl-basic-xsxm", "checked": true, "list": [<br>    				{"name": "用户列表", "value": "xsgl-basic-xsxm-readonly", "checked": true},<br>    				{"name": "新增用户", "value": "xsgl-basic-xsxm-editable", "checked": false}<br>    			]},<br>                {"name": "第三方用户", "value": "xsgl-basic-xsxm", "checked": true, "list": [<br>                    {"name": "用户列表", "value": "xsgl-basic-xsxm-readonly", "checked": true}<br>                ]}<br>    		]}<br>    	]},<br>    	{"name": "用户组管理", "value": "sbgl", "checked": true, "list": [<br>    		{"name": "角色管理", "value": "sbgl-sbsjlb", "checked": true, "list":[<br>    			{"name": "添加角色", "value": "sbgl-sbsjlb-dj", "checked": true},<br>    			{"name": "角色列表", "value": "sbgl-sbsjlb-yl", "checked": false}<br>    		]},<br>            {"name": "管理员管理", "value": "sbgl-sbsjlb", "checked": true, "list":[<br>                {"name": "添加管理员", "value": "sbgl-sbsjlb-dj", "checked": true},<br>                {"name": "管理员列表", "value": "sbgl-sbsjlb-yl", "checked": false}<br>            ]}<br>    	]}<br>    ]<br>  }<br>}</pre>
+       <div class="layui-elem-quote">
+        测试用列表转树结构(list.json)：
+       </div>
+       <pre>{<br>  "code": 0,<br>  "msg": "获取成功",<br>  "data": {<br>    "list": [<br>      { "id": 1, "name": "用户管理", "alias": "yhgl", "palias": "0" },<br>      { "id": 2, "name": "用户组管理", "alias": "yhzgl", "palias": "0" },<br>      { "id": 3, "name": "角色管理", "alias": "yhzgl-jsgl", "palias": "yhzgl" },<br>      { "id": 4, "name": "添加角色", "alias": "yhzgl-jsgl-tjjs", "palias": "yhzgl-jsgl" },<br>      { "id": 5, "name": "角色列表", "alias": "yhzgl-jsgl-jslb", "palias": "yhzgl-jsgl" },<br>      { "id": 6, "name": "管理员管理", "alias": "glygl", "palias": "0" },<br>      { "id": 7, "name": "添加管理员", "alias": "glygl-tjgly", "palias": "glygl" },<br>      { "id": 8, "name": "管理员列表", "alias": "glygl-glylb", "palias": "glygl" }<br>    ],<br>    "checkedAlias": [ "yhgl",  "yhzgl", "yhzgl-jsgl", "yhzgl-jsgl-tjjs" ]<br>  }<br>}</pre>
+       <div class="layui-elem-quote">
+        测试用列表转树结构（list-2.json）
+       </div>
+       <pre>{<br>  "code": 0,<br>  "msg": "获取成功",<br>  "data": {<br>    "list": [<br>      { "id": 1, "name": "用户管理", "pid": 0 },<br>      { "id": 2, "name": "用户组管理", "pid": 0 },<br>      { "id": 3, "name": "角色管理", "pid": 2 },<br>      { "id": 4, "name": "添加角色", "pid":  3},<br>      { "id": 5, "name": "角色列表", "pid": 3 },<br>      { "id": 6, "name": "管理员管理", "pid": 0 },<br>      { "id": 7, "name": "添加管理员", "pid": 6 },<br>      { "id": 8, "name": "管理员列表", "pid": 6 }<br>    ],<br>    "checkedId": [ 1,  2, 3, 4 ]<br>  }<br>}</pre>
+       <div class="layui-elem-quote">
+        authtree.js
+       </div>由于插件规模的扩大，不适合直接放在帖子内，请移步 GITHUB 下载，地址： <a href="https://github.com/wangerzi/layui-authtree" target="_blank" rel="nofollow">https://github.com/wangerzi/layui-authtree</a>
+       <br>
+       <hr>
+       <div class="layui-elem-quote">
+        调用样例(index.html)：
+       </div>
+       <pre>&lt;!DOCTYPE html&gt;<br>&lt;html&gt;<br>&lt;head&gt;<br>	&lt;meta charset="utf-8"&gt;<br>	&lt;title&gt;权限树扩展分享&lt;/title&gt;<br>	&lt;link rel="stylesheet" type="text/css" href="/layui/css/layui.css"&gt;<br>	&lt;script type="text/javascript" src="layui/layui.js"&gt;&lt;/script&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br>&lt;div class="layui-container"&gt;<br>	&lt;div class="layui-row"&gt;<br>		&lt;div class="layui-col-md11 layui-col-md-offset1"&gt;<br>			&lt;fieldset class="layui-elem-field layui-field-title"&gt;&lt;legend&gt;权限树操作演示&lt;/legend&gt;&lt;/fieldset&gt;<br>			&lt;div class="layui-form"&gt;<br>				&lt;div class="layui-form-item"&gt;<br>					&lt;div class="layui-form-label"&gt;普通操作&lt;/div&gt;<br>					&lt;div class="layui-form-block"&gt;<br>						&lt;button type="button" class="layui-btn layui-btn-primary" onclick="getMaxDept('#LAY-auth-tree-index')"&gt;获取树的深度&lt;/button&gt;<br>						&lt;button type="button" class="layui-btn layui-btn-primary" onclick="checkAll('#LAY-auth-tree-index')"&gt;全选&lt;/button&gt;<br>						&lt;button type="button" class="layui-btn layui-btn-primary" onclick="uncheckAll('#LAY-auth-tree-index')"&gt;全不选&lt;/button&gt;<br>						&lt;button type="button" class="layui-btn layui-btn-primary" onclick="showAll('#LAY-auth-tree-index')"&gt;全部展开&lt;/button&gt;<br>						&lt;button type="button" class="layui-btn layui-btn-primary" onclick="closeAll('#LAY-auth-tree-index')"&gt;全部隐藏&lt;/button&gt;<br>						&lt;button type="button" class="layui-btn layui-btn-primary" onclick="getNodeStatus('#LAY-auth-tree-index')"&gt;获取节点状态&lt;/button&gt;<br>					&lt;/div&gt;<br>				&lt;/div&gt;<br>				&lt;div class="layui-form-item"&gt;<br>					&lt;div class="layui-form-label"&gt;特殊操作&lt;/div&gt;<br>					&lt;div class="layui-form-block"&gt;<br>						&lt;button type="button" class="layui-btn layui-btn-primary" onclick="showDept('#LAY-auth-tree-index')"&gt;展开到某层&lt;/button&gt;<br>						&lt;button type="button" class="layui-btn layui-btn-primary" onclick="closeDept('#LAY-auth-tree-index')"&gt;关闭某层后所有的层&lt;/button&gt;<br>						&lt;button type="button" class="layui-btn layui-btn-primary" onclick="listConvert('list.json')"&gt;列表转树&lt;/button&gt;<br>					&lt;/div&gt;<br>				&lt;/div&gt;<br>			&lt;/div&gt;<br>		&lt;/div&gt;<br>		&lt;div class="layui-col-md6 layui-col-md-offset1"&gt;<br>			&lt;fieldset class="layui-elem-field layui-field-title"&gt;&lt;legend&gt;权限树扩展分享&lt;/legend&gt;&lt;/fieldset&gt;<br>			&lt;!-- 此扩展能递归渲染一个权限树，点击深层次节点，父级节点中没有被选中的节点会被自动选中，单独点击父节点，子节点会全部 选中/去选中 --&gt;<br>			&lt;form class="layui-form"&gt;<br>				&lt;div class="layui-form-item"&gt;<br>					&lt;label class="layui-form-label"&gt;角色名称&lt;/label&gt;<br>					&lt;div class="layui-input-block"&gt;<br>						&lt;input class="layui-input" type="text" name="name" placeholder="请输入角色名称" /&gt;<br>					&lt;/div&gt;<br>				&lt;/div&gt;<br>				&lt;div class="layui-form-item"&gt;<br>					&lt;label class="layui-form-label"&gt;选择权限&lt;/label&gt;<br>					&lt;div class="layui-input-block"&gt;<br>						&lt;div id="LAY-auth-tree-index"&gt;&lt;/div&gt;<br>					&lt;/div&gt;<br>				&lt;/div&gt;<br>				&lt;div class="layui-form-item"&gt;<br>					&lt;div class="layui-input-block"&gt;<br>						&lt;button class="layui-btn" type="submit" lay-submit lay-filter="LAY-auth-tree-submit"&gt;提交&lt;/button&gt;<br>						&lt;button class="layui-btn layui-btn-primary" type="reset"&gt;重置&lt;/button&gt;<br>					&lt;/div&gt;<br>				&lt;/div&gt;<br>			&lt;/form&gt;<br>		&lt;/div&gt;<br>	&lt;/div&gt;<br>&lt;/div&gt;<br>&lt;/body&gt;<br>&lt;script type="text/javascript"&gt;<br>layui.config({<br>	base: 'extends/',<br>}).extend({<br>	authtree: 'authtree',<br>});<br>layui.use(['jquery', 'authtree', 'form', 'layer'], function(){<br>	var $ = layui.jquery;<br>	var authtree = layui.authtree;<br>	var form = layui.form;<br>	var layer = layui.layer;<br>	// 初始化<br>	$.ajax({<br>		url: 'tree.json',<br>		dataType: 'json',<br>		success: function(data){<br>			// 渲染时传入渲染目标ID，树形结构数据（具体结构看样例，checked表示默认选中），以及input表单的名字<br>			authtree.render('#LAY-auth-tree-index', data.data.trees, {<br>				inputname: 'authids[]'<br>				,layfilter: 'lay-check-auth'<br>				// ,autoclose: false<br>				// ,autochecked: false<br>				// ,openchecked: true<br>				// ,openall: true<br>				,autowidth: true<br>			});<br><br>			// PS:使用 form.on() 会引起了事件冒泡延迟的BUG，需要 setTimeout()，并且无法监听全选/全不选<br>			// PS:如果开启双击展开配置，form.on()会记录两次点击事件，authtree.on()不会<br>			form.on('checkbox(lay-check-auth)', function(data){<br>				// 注意这里：需要等待事件冒泡完成，不然获取叶子节点不准确。<br>				setTimeout(function(){<br>					console.log('监听 form 触发事件数据', data);<br>					// 获取选中的叶子节点<br>					var leaf = authtree.getLeaf('#LAY-auth-tree-index');<br>					console.log('leaf', leaf);<br>					// 获取最新选中<br>					var lastChecked = authtree.getLastChecked('#LAY-auth-tree-index');<br>					console.log('lastChecked', lastChecked);<br>					// 获取最新取消<br>					var lastNotChecked = authtree.getLastNotChecked('#LAY-auth-tree-index');<br>					console.log('lastNotChecked', lastNotChecked);<br>				}, 100);<br>			});<br>			// 使用 authtree.on() 不会有冒泡延迟<br>			authtree.on('change(lay-check-auth)', function(data) {<br>				console.log('监听 authtree 触发事件数据', data);<br>				// 获取所有节点<br>				var all = authtree.getAll('#LAY-auth-tree-index');<br>				console.log('all', all);<br>				// 获取所有已选中节点<br>				var checked = authtree.getChecked('#LAY-auth-tree-index');<br>				console.log('checked', checked);<br>				// 获取所有未选中节点<br>				var notchecked = authtree.getNotChecked('#LAY-auth-tree-index');<br>				console.log('notchecked', notchecked);<br>				// 获取选中的叶子节点<br>				var leaf = authtree.getLeaf('#LAY-auth-tree-index');<br>				console.log('leaf', leaf);<br>				// 获取最新选中<br>				var lastChecked = authtree.getLastChecked('#LAY-auth-tree-index');<br>				console.log('lastChecked', lastChecked);<br>				// 获取最新取消<br>				var lastNotChecked = authtree.getLastNotChecked('#LAY-auth-tree-index');<br>				console.log('lastNotChecked', lastNotChecked);<br>			});<br>			authtree.on('deptChange(lay-check-auth)', function(data) {<br>				console.log('监听到显示层数改变',data);<br>			});<br>		}<br>	});<br>	form.on('submit(LAY-auth-tree-submit)', function(obj){<br>		var authids = authtree.getAll('#LAY-auth-tree-index');<br>		console.log('Choosed authids is', authids);<br>		obj.field.authids = authids;<br>		$.ajax({<br>			url: 'tree.json',<br>			dataType: 'json',<br>			data: obj.field,<br>			success: function(res){<br>				layer.alert('提交成功！');<br>			}<br>		});<br>		return false;<br>	});<br>});<br>&lt;/script&gt;<br>&lt;script type="text/javascript"&gt;<br>// 获取最大深度样例<br>function getMaxDept(dst){<br>	layui.use(['jquery', 'layer', 'authtree'], function(){<br>		var layer = layui.layer;<br>		var authtree = layui.authtree;<br><br>		layer.alert('树'+dst+'的最大深度为：'+authtree.getMaxDept(dst));<br>	});<br>}<br>// 全选样例<br>function checkAll(dst){<br>	layui.use(['jquery', 'layer', 'authtree'], function(){<br>		var layer = layui.layer;<br>		var authtree = layui.authtree;<br><br>		authtree.checkAll(dst);<br>	});<br>}<br>// 全不选样例<br>function uncheckAll(dst){<br>	layui.use(['jquery', 'layer', 'authtree'], function(){<br>		var layer = layui.layer;<br>		var authtree = layui.authtree;<br><br>		authtree.uncheckAll(dst);<br>	});<br>}<br>// 显示全部<br>function showAll(dst){<br>	layui.use(['jquery', 'layer', 'authtree'], function(){<br>		var layer = layui.layer;<br>		var authtree = layui.authtree;<br><br>		authtree.showAll(dst);<br>	});<br>}<br>// 隐藏全部<br>function closeAll(dst){<br>	layui.use(['jquery', 'layer', 'authtree'], function(){<br>		var layer = layui.layer;<br>		var authtree = layui.authtree;<br><br>		authtree.closeAll(dst);<br>	});<br>}<br>// 获取节点状态<br>function getNodeStatus(dst){<br>	layui.use(['jquery', 'layer', 'authtree', 'laytpl'], function(){<br>		var layer = layui.layer;<br>		var authtree = layui.authtree;<br>		var laytpl = layui.laytpl;<br><br>		// 获取所有节点<br>		var all = authtree.getAll('#LAY-auth-tree-index');<br>		// 获取所有已选中节点<br>		var checked = authtree.getChecked('#LAY-auth-tree-index');<br>		// 获取所有未选中节点<br>		var notchecked = authtree.getNotChecked('#LAY-auth-tree-index');<br>		// 获取选中的叶子节点<br>		var leaf = authtree.getLeaf('#LAY-auth-tree-index');<br>		// 获取最新选中<br>		var lastChecked = authtree.getLastChecked('#LAY-auth-tree-index');<br>		// 获取最新取消<br>		var lastNotChecked = authtree.getLastNotChecked('#LAY-auth-tree-index');<br><br>		var data = [<br>			{func: 'getAll', desc: '获取所有节点', data: all},<br>			{func: 'getChecked', desc: '获取所有已选中节点', data: checked},<br>			{func: 'getNotChecked', desc: '获取所有未选中节点', data: notchecked},<br>			{func: 'getLeaf', desc: '获取选中的叶子节点', data: leaf},<br>			{func: 'getLastChecked', desc: '获取最新选中', data: lastChecked},<br>			{func: 'getLastNotChecked', desc: '获取最新取消', data: lastNotChecked},<br>		];<br><br>		var string =  laytpl($('#LAY-auth-tree-nodes').html()).render({<br>			data: data,<br>		});<br>		layer.open({<br>			title: '节点状态'<br>			,content: string<br>			,area: '800px'<br>			,tipsMore: true<br>		});<br>		$('body').unbind('click').on('click', '.LAY-auth-tree-show-detail', function(){<br>			layer.open({<br>				type: 1,<br>				title: $(this).data('title')+'-节点详情',<br>				content: '['+$(this).data('content')+']',<br>				tipsMore: true<br>			});<br>		});<br>	});<br>}<br>// 显示到某层<br>function showDept(dst) {<br>	layui.use(['layer', 'authtree', 'jquery'], function(){<br>		var jquery = layui.jquery;<br>		var layer = layui.layer;<br>		var authtree = layui.authtree;<br><br>		layer.prompt({title: '显示到某层'}, function(value, index, elem) {<br>			authtree.showDept(dst, value);<br>			layer.close(index);<br>		});<br>	});<br>}<br>// 关闭某层以后的所有层<br>function closeDept(dst) {<br>	layui.use(['layer', 'authtree', 'jquery'], function(){<br>		var jquery = layui.jquery;<br>		var layer = layui.layer;<br>		var authtree = layui.authtree;<br><br>		layer.prompt({title: '关闭某层以后的所有层'}, function(value, index, elem) {<br>			authtree.closeDept(dst, value);<br>			layer.close(index);<br>		});<br>	});<br>}<br>// 转换列表<br>function listConvert(url) {<br>	layui.use(['layer', 'authtree', 'jquery', 'form', 'code'], function(){<br>		var jquery = layui.jquery;<br>		var layer = layui.layer;<br>		var authtree = layui.authtree;<br>		var form = layui.form;<br><br>		layer.open({<br>			title: '列表转树演示'<br>			,content: '&lt;fieldset class="layui-elem-field layui-field-title"&gt;&lt;legend&gt;列表数据转权限树&lt;/legend&gt;&lt;/fieldset&gt;&lt;form class="layui-form"&gt; &lt;div class="layui-form-item"&gt; &lt;label class="layui-form-label"&gt;多选权限&lt;/label&gt; &lt;div class="layui-input-block"&gt; &lt;div id="LAY-auth-tree-convert-index"&gt;&lt;/div&gt; &lt;/div&gt; &lt;/div&gt; &lt;div class="layui-form-item"&gt; &lt;div class="layui-input-block"&gt; &lt;button class="layui-btn" type="submit" lay-submit lay-filter="LAY-auth-tree-submit"&gt;提交&lt;/button&gt; &lt;button class="layui-btn layui-btn-primary" type="reset"&gt;重置&lt;/button&gt; &lt;/div&gt; &lt;/div&gt;&lt;/form&gt;&lt;pre class="layui-code" id="LAY-auth-tree-convert-code"&gt;&lt;/pre&gt;'<br>			,area: ['800px', '400px']<br>			,tipsMore: true<br>			,success: function() {<br>				$.ajax({<br>					url: url,<br>					dataType: 'json',<br>					success: function(res){<br>						$('#LAY-auth-tree-convert-code').text(JSON.stringify(res, null, 2));<br>						layui.code({<br>							title: '返回的列表数据'<br>						});<br>						// 支持自定义递归字段、数组权限判断等<br>						// 深坑注意：如果API返回的数据是字符串，那么 startPid 的数据类型也需要是字符串<br>						var trees = authtree.listConvert(res.data.list, {<br>							primaryKey: 'alias'<br>							,startPid: '0'<br>							,parentKey: 'palias'<br>							,nameKey: 'name'<br>							,valueKey: 'alias'<br>							,checkedKey: res.data.checkedAlias<br>						});<br>						// 如果页面中多个树共存，需要注意 layfilter 需要不一样<br>						authtree.render('#LAY-auth-tree-convert-index', trees, {<br>							inputname: 'authids[]', <br>							layfilter: 'lay-check-convert-auth', <br>							// openall: true,<br>							autowidth: true,<br>						});<br>					}<br>				});<br>			},<br>		});<br>	});<br>}<br>&lt;/script&gt;<br>&lt;!-- 状态模板 --&gt;<br>&lt;script type="text/html" id="LAY-auth-tree-nodes"&gt;<br>&lt;style type="text/css"&gt;<br>	.layui-layer-page .layui-layer-content{<br>		padding: 20px;<br>		line-height: 22px;<br>	}<br>&lt;/style&gt;<br>	&lt;table class="layui-table"&gt;<br>		&lt;thead&gt;<br>			&lt;th&gt;方法名&lt;/th&gt;<br>			&lt;th&gt;描述&lt;/th&gt;<br>			&lt;th&gt;节点&lt;/th&gt;<br>		&lt;/thead&gt;<br>		&lt;tbody&gt;<br>			{{# layui.each(d.data, function(index, item) { }}<br>			&lt;tr&gt;<br>				&lt;td&gt;{{item.func}}&lt;/td&gt;<br>				&lt;td&gt;{{item.desc}}&lt;/td&gt;<br>				&lt;td&gt;&lt;a class="LAY-auth-tree-show-detail" href="javascript:" data-title="{{item.desc}}" data-content="{{item.data.join(']&lt;br&gt;[')}}"&gt;查看详情&lt;/a&gt;({{item.data.length}})&lt;/td&gt;<br>			&lt;/tr&gt;<br>			{{# });}}<br>		&lt;/tbody&gt;<br>	&lt;/table&gt;<br>&lt;/script&gt;<br>&lt;/html&gt;</pre>
+       <hr> 
+      </div> 
+     </div> 
+     <div class="layui-card fly-extend-doc"> 
+      <div class="layui-card-header"> 
+       <h3 class="layui-inline layui-this">下载</h3> 
+      </div> 
+      <div class="layui-card-body detail-body layui-text"> 
+       <div class="layui-btn-container"> <a href="/extend/11634672_1563610689226_80251.zip" target="_blank" class="layui-btn layui-btn-lg layui-btn-primary"> 立即下载 </a> <a href="https://gitee.com/wangerzi/layui-authtree" target="_blank" class="layui-btn layui-btn-lg layui-btn-primary layui-border-red"> 去码云下载 </a> <a href="https://github.com/wangerzi/layui-authtree" target="_blank" class="layui-btn layui-btn-lg layui-btn-primary layui-border-black"> 去 GitHub 下载 </a>
+        <blockquote class="layui-elem-quote">
+          该扩展组件由第三方用户主动投递，并由其自身进行维护，本站仅做收集。 
+        </blockquote> 
+       </div> 
+      </div> 
+     </div> 
+    </div> 
+   </div>
+  </div>
+  <div class="fly-footer"> 
+   <p> Copyright © 2022 <a href="layui.windseeker.link">layui.windseeker.link</a> MIT Licensed</p>
+   <p> copyright © 2022 <a href="https://www.windseeker.link/" target="_blank">windseeker</a> all rights reserved.| <a href="http://beian.miit.gov.cn/" target="_blank">沪ICP备2021002849号-2</a></p>
+  </div>
+  <script src="/layui/dist/layui.js"></script>
+  <script src="/common/extend-common.js"></script>
+
+ </body>
+<script src="/common/common.js"></script>
+</html>
