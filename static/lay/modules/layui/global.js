@@ -3,45 +3,45 @@
  * layui 官网
  */
 
-layui.define(['code', 'element', 'table', 'util', 'carousel', 'laytpl'], function(exports){
+layui.define(['code', 'element', 'table', 'util', 'carousel', 'laytpl'], function (exports) {
   var $ = layui.jquery
-  ,element = layui.element
-  ,layer = layui.layer
-  ,form = layui.form
-  ,util = layui.util
-  ,carousel = layui.carousel
-  ,laytpl = layui.laytpl
-  ,device = layui.device()
+    , element = layui.element
+    , layer = layui.layer
+    , form = layui.form
+    , util = layui.util
+    , carousel = layui.carousel
+    , laytpl = layui.laytpl
+    , device = layui.device()
 
-  ,$win = $(window), $body = $('body');
+    , $win = $(window), $body = $('body');
 
   //ban iframe
-  ;!function(){self!==parent&&(location.href="//www.baidu.com/")}();
+  ; !function () { self !== parent && (location.href = "//www.baidu.com/") }();
 
 
   //阻止 IE7 以下访问
-  if(device.ie && device.ie < 8){
-    layer.alert('Layui 最低支持 IE8，而您当前使用的是古老的 IE'+ device.ie + '，体验将会不佳！');
+  if (device.ie && device.ie < 8) {
+    layer.alert('Layui 最低支持 IE8，而您当前使用的是古老的 IE' + device.ie + '，体验将会不佳！');
   }
 
   var home = {
     //获取高级浏览器
-    getBrowser: function(){
+    getBrowser: function () {
       var ua = navigator.userAgent.toLocaleLowerCase()
-      ,mimeType = function(option, value) {
-        var mimeTypes = navigator.mimeTypes;
-        for (var key in mimeTypes) {
-          if (mimeTypes[key][option] && mimeTypes[key][option].indexOf(value) !== -1) {
-            return true;
+        , mimeType = function (option, value) {
+          var mimeTypes = navigator.mimeTypes;
+          for (var key in mimeTypes) {
+            if (mimeTypes[key][option] && mimeTypes[key][option].indexOf(value) !== -1) {
+              return true;
+            }
           }
-        }
-        return;
-      };
-      if(ua.match(/chrome/)){
-        if(mimeType('type', '360') || mimeType('type', 'sogou')) return;
-        if(ua.match(/edg\//)) return 'edge';
+          return;
+        };
+      if (ua.match(/chrome/)) {
+        if (mimeType('type', '360') || mimeType('type', 'sogou')) return;
+        if (ua.match(/edg\//)) return 'edge';
         return 'chrome'
-      } else if(ua.match(/firefox/)){
+      } else if (ua.match(/firefox/)) {
         return 'firefox';
       }
 
@@ -53,170 +53,170 @@ layui.define(['code', 'element', 'table', 'util', 'carousel', 'laytpl'], functio
   var local = layui.data('layui');
 
   //初始弹窗
-  layer.ready(function(){
+  layer.ready(function () {
 
     //升级提示
-    if(local.version && local.version !== layui.v){
+    if (local.version && local.version !== layui.v) {
       layer.open({
         type: 1
-        ,title: '更新提示' //不显示标题栏
-        ,closeBtn: false
-        ,area: '300px;'
-        ,shade: false
-        ,offset: 'b'
-        ,id: 'LAY_updateNotice' //设定一个id，防止重复弹出
-        ,btn: ['更新日志', '我知道了']
-        ,btnAlign: 'c'
-        ,moveType: 1 //拖拽模式，0或者1
-        ,content: ['<div class="layui-text">'
-          ,'layui 已发布新版本：：<strong style="padding-right: 10px; color: #fff;">v'+ layui.v + '</strong>'
-        ,'</div>'].join('')
-        ,skin: 'layui-layer-notice'
-        ,yes: function(index){
+        , title: '更新提示' //不显示标题栏
+        , closeBtn: false
+        , area: '300px;'
+        , shade: false
+        , offset: 'b'
+        , id: 'LAY_updateNotice' //设定一个id，防止重复弹出
+        , btn: ['更新日志', '我知道了']
+        , btnAlign: 'c'
+        , moveType: 1 //拖拽模式，0或者1
+        , content: ['<div class="layui-text">'
+          , 'layui 已发布新版本：：<strong style="padding-right: 10px; color: #fff;">v' + layui.v + '</strong>'
+          , '</div>'].join('')
+        , skin: 'layui-layer-notice'
+        , yes: function (index) {
           layer.close(index);
-          setTimeout(function(){
+          setTimeout(function () {
             location.href = '/doc/base/changelog.html';
           }, 500);
         }
-        ,end: function(){
+        , end: function () {
           layui.data('layui', {
             key: 'version'
-            ,value: layui.v
+            , value: layui.v
           });
         }
       });
     }
     layui.data('layui', {
       key: 'version'
-      ,value: layui.v
+      , value: layui.v
     });
   });
 
   //头部搜索
-  ;!function(){
+  ; !function () {
     var elemComponentSelect = $(['<select lay-search lay-filter="component">'
-      ,'<option value="">搜索组件模块</option>'
-      ,'<option value="element/layout.html">grid 栅格布局</option>'
-      ,'<option value="element/layout.html#admin">layout admin 布局</option>'
-      ,'<option value="element/color.html">color 颜色</option>'
-      ,'<option value="element/icon.html">iconfont 字体图标</option>'
-      ,'<option value="base/element.html#css">font 字体大小 颜色</option>'
-      ,'<option value="element/anim.html">animation 动画</option>'
-      ,'<option value="element/button.html">button 按钮</option>'
-      ,'<option value="element/form.html">form 表单组</option>'
-      ,'<option value="element/form.html#input">input 输入框</option>'
-      ,'<option value="element/form.html#select">select 下拉选择框</option>'
-      ,'<option value="element/form.html#checkbox">checkbox 复选框</option>'
-      ,'<option value="element/form.html#switch">switch 开关</option>'
-      ,'<option value="element/form.html#radio">radio 单选框</option>'
-      ,'<option value="element/form.html#textarea">textarea 文本域</option>'
-      ,'<option value="element/nav.html">nav 导航菜单</option>'
-      ,'<option value="element/menu.html">menu 基础通用菜单</option>'
-      ,'<option value="element/nav.html#breadcrumb">breadcrumb 面包屑</option>'
-      ,'<option value="element/tab.html">tabs 选项卡</option>'
-      ,'<option value="element/progress.html">progress 进度条</option>'
-      ,'<option value="element/panel.html">panel 面板 / card</option>'
-      ,'<option value="element/collapse.html">collapse 折叠面板/手风琴</option>'
-      ,'<option value="element/table.html">table 表格元素</option>'
-      ,'<option value="element/badge.html">badge 徽章</option>'
-      ,'<option value="element/timeline.html">timeline 时间线</option>'
-      ,'<option value="element/auxiliar.html#blockquote">blockquote 引用块</option>'
-      ,'<option value="element/auxiliar.html#fieldset">fieldset 字段集</option>'
-      ,'<option value="element/auxiliar.html#hr">hr 分割线</option>'
+      , '<option value="">搜索组件模块</option>'
+      , '<option value="element/layout.html">grid 栅格布局</option>'
+      , '<option value="element/layout.html#admin">layout admin 布局</option>'
+      , '<option value="element/color.html">color 颜色</option>'
+      , '<option value="element/icon.html">iconfont 字体图标</option>'
+      , '<option value="base/element.html#css">font 字体大小 颜色</option>'
+      , '<option value="element/anim.html">animation 动画</option>'
+      , '<option value="element/button.html">button 按钮</option>'
+      , '<option value="element/form.html">form 表单组</option>'
+      , '<option value="element/form.html#input">input 输入框</option>'
+      , '<option value="element/form.html#select">select 下拉选择框</option>'
+      , '<option value="element/form.html#checkbox">checkbox 复选框</option>'
+      , '<option value="element/form.html#switch">switch 开关</option>'
+      , '<option value="element/form.html#radio">radio 单选框</option>'
+      , '<option value="element/form.html#textarea">textarea 文本域</option>'
+      , '<option value="element/nav.html">nav 导航菜单</option>'
+      , '<option value="element/menu.html">menu 基础通用菜单</option>'
+      , '<option value="element/nav.html#breadcrumb">breadcrumb 面包屑</option>'
+      , '<option value="element/tab.html">tabs 选项卡</option>'
+      , '<option value="element/progress.html">progress 进度条</option>'
+      , '<option value="element/panel.html">panel 面板 / card</option>'
+      , '<option value="element/collapse.html">collapse 折叠面板/手风琴</option>'
+      , '<option value="element/table.html">table 表格元素</option>'
+      , '<option value="element/badge.html">badge 徽章</option>'
+      , '<option value="element/timeline.html">timeline 时间线</option>'
+      , '<option value="element/auxiliar.html#blockquote">blockquote 引用块</option>'
+      , '<option value="element/auxiliar.html#fieldset">fieldset 字段集</option>'
+      , '<option value="element/auxiliar.html#hr">hr 分割线</option>'
 
-      ,'<option value="modules/layer.html">layer 弹出层/弹窗综合</option>'
-      ,'<option value="modules/laydate.html">laydate 日期时间选择器</option>'
-      ,'<option value="modules/laypage.html">laypage 分页</option>'
-      ,'<option value="modules/laytpl.html">laytpl 模板引擎</option>'
-      ,'<option value="modules/table.html">table 数据表格</option>'
-      ,'<option value="modules/form.html">form 表单模块</option>'
-      ,'<option value="modules/upload.html">upload 文件/图片上传</option>'
-      ,'<option value="modules/dropdown.html">dropdown 下拉菜单</option>'
-      ,'<option value="modules/dropdown.html#contextmenu">contextmenu 右键菜单</option>'
-      ,'<option value="modules/transfer.html">transfer 穿梭框</option>'
-      ,'<option value="modules/tree.html">tree 树形菜单</option>'
-      ,'<option value="modules/colorpicker.html">colorpicker 颜色选择器</option>'
-      ,'<option value="modules/element.html">element 常用元素操作</option>'
-      ,'<option value="modules/slider.html">slider 滑块</option>'
-      ,'<option value="modules/rate.html">rate 评分</option>'
-      ,'<option value="modules/carousel.html">carousel 轮播/跑马灯</option>'
-      ,'<option value="modules/layedit.html">layedit 富文本编辑器</option>'
-      ,'<option value="modules/flow.html">flow 信息流/图片懒加载</option>'
-      ,'<option value="modules/util.html">util 工具集</option>'
-      ,'<option value="modules/code.html">code 代码文本行修饰</option>'
+      , '<option value="modules/layer.html">layer 弹出层/弹窗综合</option>'
+      , '<option value="modules/laydate.html">laydate 日期时间选择器</option>'
+      , '<option value="modules/laypage.html">laypage 分页</option>'
+      , '<option value="modules/laytpl.html">laytpl 模板引擎</option>'
+      , '<option value="modules/table.html">table 数据表格</option>'
+      , '<option value="modules/form.html">form 表单模块</option>'
+      , '<option value="modules/upload.html">upload 文件/图片上传</option>'
+      , '<option value="modules/dropdown.html">dropdown 下拉菜单</option>'
+      , '<option value="modules/dropdown.html#contextmenu">contextmenu 右键菜单</option>'
+      , '<option value="modules/transfer.html">transfer 穿梭框</option>'
+      , '<option value="modules/tree.html">tree 树形菜单</option>'
+      , '<option value="modules/colorpicker.html">colorpicker 颜色选择器</option>'
+      , '<option value="modules/element.html">element 常用元素操作</option>'
+      , '<option value="modules/slider.html">slider 滑块</option>'
+      , '<option value="modules/rate.html">rate 评分</option>'
+      , '<option value="modules/carousel.html">carousel 轮播/跑马灯</option>'
+      , '<option value="modules/layedit.html">layedit 富文本编辑器</option>'
+      , '<option value="modules/flow.html">flow 信息流/图片懒加载</option>'
+      , '<option value="modules/util.html">util 工具集</option>'
+      , '<option value="modules/code.html">code 代码文本行修饰</option>'
 
-      ,'<option value="/layim/">layim</option>'
-      ,'<option value="/layuiadmin/">layuiadmin</option>'
-    ,'</select>'
-    ,'<i class="layui-icon layui-icon-search"></i>'].join(''));
+      , '<option value="/layim/">layim</option>'
+      , '<option value="/layuiadmin/">layuiadmin</option>'
+      , '</select>'
+      , '<i class="layui-icon layui-icon-search"></i>'].join(''));
 
     $('.component').append(elemComponentSelect);
     form.render('select', 'LAY-site-header-component');
 
     //搜索组件
-    form.on('select(component)', function(data){
+    form.on('select(component)', function (data) {
       var value = data.value;
-      location.href = /^\//.test(value) ? value : ('/doc/'+ value);
+      location.href = /^\//.test(value) ? value : ('/doc/' + value);
     });
   }();
 
   //顶部轮播 TIPS
-  var notice = function(options, elemParter){
+  var notice = function (options, elemParter) {
     var local = layui.data('layui');
 
     options = options || {};
 
-    if(device.mobile) return;
+    if (device.mobile) return;
 
     //是否不显示 tips
-    var keyName = 'notice_topnav_'+ options.key
-    ,notParter = local[keyName] && new Date().getTime() - local[keyName] < (options.tipsInterval || 1000*60*30); //默认 30 分钟出现一次
+    var keyName = 'notice_topnav_' + options.key
+      , notParter = local[keyName] && new Date().getTime() - local[keyName] < (options.tipsInterval || 1000 * 60 * 30); //默认 30 分钟出现一次
 
-    if(!options.tips) layer.close(layer.tipsIndex);
+    if (!options.tips) layer.close(layer.tipsIndex);
 
-    if(!notParter && options.tips){
+    if (!notParter && options.tips) {
       var tipsIndex = layer.tipsIndex = layer.tips(
-        ['<a href="/'+ options.url +'" target="_blank" style="display: block; line-height: 30px; padding: 10px; text-align: center; font-size: 14px; background-image: linear-gradient(to right,#8510FF,#D025C2,#FF8B2D,#FF0036); color: #fff; '+ (options.tipsCss || '') +'">'
+        ['<a href="/' + options.url + '" target="_blank" style="display: block; line-height: 30px; padding: 10px; text-align: center; font-size: 14px; background-image: linear-gradient(to right,#8510FF,#D025C2,#FF8B2D,#FF0036); color: #fff; ' + (options.tipsCss || '') + '">'
 
           //阿里云经典：background-image: linear-gradient(to right,#8510FF,#D025C2,#FF8B2D,#FF0036);
           //阿里云活动：background-image: linear-gradient(to right,#8510FF,#D025C2,#F64E2C,#FF0036);
 
           //腾讯经典：background-image: linear-gradient(to right,#1242A4,#1746A1,#CFAE71,#1746A1);
 
-          ,options.desc || ''
-        ,'</a>'].join('')
-        ,elemParter
-        ,{
-          tips: (options.tipsStyle ? new Function('return '+ options.tipsStyle)() : [3, '#9F17E9'])
+          , options.desc || ''
+          , '</a>'].join('')
+        , elemParter
+        , {
+          tips: (options.tipsStyle ? new Function('return ' + options.tipsStyle)() : [3, '#9F17E9'])
 
           //阿里云经典：[3, '#9F17E9']
           //腾讯云经典：[3, '#1443A3'] //[3, '#803ED9']
 
-          ,skin: 'layui-hide-xs'
-          ,maxWidth: 320
-          ,time: 0
-          ,anim: 5
-          ,tipeMore: true
-          ,success: function(layero, index){
+          , skin: 'layui-hide-xs'
+          , maxWidth: 320
+          , time: 0
+          , anim: 5
+          , tipeMore: true
+          , success: function (layero, index) {
             layero.find('.layui-layer-content').css({
               'padding': 0
             });
-            layero.find('a').on('click', function(){
+            layero.find('a').on('click', function () {
               elemParter.trigger('click');
             });
 
             //隐藏小箭头
             var tipsG = layero.find('.layui-layer-TipsG');
-            if(tipsG.css('left') !== '5px'){
+            if (tipsG.css('left') !== '5px') {
               tipsG.hide();
             }
 
             //移动端样式
-            if(elemParter.parent().css('display') === 'none'){
+            if (elemParter.parent().css('display') === 'none') {
               layero.css({
                 left: '50%'
-                ,top: '80px'
-                ,'margin-left': -(layero.width()/2)
+                , top: '80px'
+                , 'margin-left': -(layero.width() / 2)
               });
               tipsG.hide();
             }
@@ -224,10 +224,10 @@ layui.define(['code', 'element', 'table', 'util', 'carousel', 'laytpl'], functio
         }
       )
       //点击链接
-      elemParter.on('click', function(){
+      elemParter.on('click', function () {
         layui.data('layui', {
           key: keyName
-          ,value: new Date().getTime()
+          , value: new Date().getTime()
         });
         layer.close(tipsIndex);
       });
@@ -236,68 +236,68 @@ layui.define(['code', 'element', 'table', 'util', 'carousel', 'laytpl'], functio
   };
 
   //头部轮播
-  ;!function(){
+  ; !function () {
     var noticeElem = $('.site-notice');
-    if(device.mobile || !noticeElem[0]) return;
+    if (device.mobile || !noticeElem[0]) return;
 
-   /* $.get('//fly.layui.com/cross/tg/', {
-      classname: 'toptg'
-    }, function(data){
-      data = data || [];
-      data = layui.sort(data, 'sort', true); //优先级排序
-
-      var tpl = ['{{# if(d.length > 0){ }}'
-      ,'<div class="layui-carousel" id="layui-spm-event-parter" lay-filter="site-top-carousel">'
-        ,'<div carousel-item>'
-          ,'{{# layui.each(d, function(index, v){ '
-            ,'var tg = v.ad ? "tg" : "";'
-            ,'var style = v.tipsCss || "";'
-          ,'}}'
-          ,'<div>'
-            ,'<a href="/{{ v.url }}" target="_blank" class="{{ tg }} tg-{{ v.key }}" data-tips="{{ v.tips }}">'
-              ,'<cite style="{{ style }}">{{ v.title }} {{# if(v.hot){ }}<span class="layui-badge-dot" style="margin-top: -5px;"></span>{{# } }}</cite>'
-            ,'</a>'
-            ,'<style>'
-              ,'{{# if(v.ad){ }} .site-notice a.tg-{{ v.key }} cite{padding-right:25px;} {{# } }}'
-              ,'{{# if(v.ad){ }}.site-notice a.tg-{{ v.key }}:after{content:"{{ v.ad }}"} {{# } }}'
-            ,'</style>'
-          ,'</div>'
-          ,'{{# }); }}'
-        ,'</div>'
-      ,'</div>'
-      ,'{{# } }}'].join('');
-
-      laytpl(tpl).render(data, function(html){
-        var elem = '.site-notice .layui-carousel';
-        noticeElem.html(html);
-
-        //轮播实例
-        carousel.render({
-          elem: elem
-          ,width: '100%' //设置容器宽度
-          ,height: '100%'
-          ,arrow: 'none' //始终显示箭头
-          ,indicator: 'none' //指示器位置
-          ,anim: 'fade' //切换动画方式
-          ,interval: 5000 //自动切换的时间间隔
-        });
-
-        notice(data[0], $(elem).children('div').children('div').eq(0).find('a'));
-        carousel.on('change(site-top-carousel)', function(obj){
-          notice(data[obj.index], obj.item.find('a'));
-        });
-
-      });
-    }, 'jsonp');*/
+    /* $.get('//fly.layui.com/cross/tg/', {
+       classname: 'toptg'
+     }, function(data){
+       data = data || [];
+       data = layui.sort(data, 'sort', true); //优先级排序
+ 
+       var tpl = ['{{# if(d.length > 0){ }}'
+       ,'<div class="layui-carousel" id="layui-spm-event-parter" lay-filter="site-top-carousel">'
+         ,'<div carousel-item>'
+           ,'{{# layui.each(d, function(index, v){ '
+             ,'var tg = v.ad ? "tg" : "";'
+             ,'var style = v.tipsCss || "";'
+           ,'}}'
+           ,'<div>'
+             ,'<a href="/{{ v.url }}" target="_blank" class="{{ tg }} tg-{{ v.key }}" data-tips="{{ v.tips }}">'
+               ,'<cite style="{{ style }}">{{ v.title }} {{# if(v.hot){ }}<span class="layui-badge-dot" style="margin-top: -5px;"></span>{{# } }}</cite>'
+             ,'</a>'
+             ,'<style>'
+               ,'{{# if(v.ad){ }} .site-notice a.tg-{{ v.key }} cite{padding-right:25px;} {{# } }}'
+               ,'{{# if(v.ad){ }}.site-notice a.tg-{{ v.key }}:after{content:"{{ v.ad }}"} {{# } }}'
+             ,'</style>'
+           ,'</div>'
+           ,'{{# }); }}'
+         ,'</div>'
+       ,'</div>'
+       ,'{{# } }}'].join('');
+ 
+       laytpl(tpl).render(data, function(html){
+         var elem = '.site-notice .layui-carousel';
+         noticeElem.html(html);
+ 
+         //轮播实例
+         carousel.render({
+           elem: elem
+           ,width: '100%' //设置容器宽度
+           ,height: '100%'
+           ,arrow: 'none' //始终显示箭头
+           ,indicator: 'none' //指示器位置
+           ,anim: 'fade' //切换动画方式
+           ,interval: 5000 //自动切换的时间间隔
+         });
+ 
+         notice(data[0], $(elem).children('div').children('div').eq(0).find('a'));
+         carousel.on('change(site-top-carousel)', function(obj){
+           notice(data[obj.index], obj.item.find('a'));
+         });
+ 
+       });
+     }, 'jsonp');*/
   }();
 
   //头部动态导航
-  ;!function(){
+  ; !function () {
     var elemNavTop = $('#LAY_NAV_TOP')
-    ,browser = home.getBrowser();
+      , browser = home.getBrowser();
 
-    if(!(browser === 'chrome' || browser === 'firefox')) return;
-    if(!elemNavTop[0]) return;
+    if (!(browser === 'chrome' || browser === 'firefox')) return;
+    if (!elemNavTop[0]) return;
 
     /*$.get('//fly.layui.com/cross/tg/', {
       classname: 'topnav'
@@ -317,7 +317,7 @@ layui.define(['code', 'element', 'table', 'util', 'carousel', 'laytpl'], functio
   }();
 
   //弹出公告
-  ;!function(){
+  ; !function () {
     /*$.get('//fly.layui.com/cross/tg/', {
       classname: 'popup'
     }, function(data){
@@ -364,82 +364,82 @@ layui.define(['code', 'element', 'table', 'util', 'carousel', 'laytpl'], functio
   //点击事件
   var events = {
     //联系方式
-    contactInfo: function(){
+    contactInfo: function () {
       layer.alert('<div class="layui-text">如有合作意向，可联系：<br>邮箱：xianxin@layui-inc.com</div>', {
-        title:'联系'
-        ,btn: false
-        ,shadeClose: true
+        title: '联系'
+        , btn: false
+        , shadeClose: true
       });
     }
     //公众号
-    ,weixinmp: function(){
+    , weixinmp: function () {
       layer.photos({
         photos: {
           data: [{
             alt: 'layui 公众号'
-            ,"src": "/upload/2017_8/168_1501890714998_68095.jpg" //原图地址
-            ,"thumb": "/upload/2017_8/168_1501890714998_68095.jpg" //缩略图地址
+            , "src": "/upload/2017_8/168_1501890714998_68095.jpg" //原图地址
+            , "thumb": "/upload/2017_8/168_1501890714998_68095.jpg" //缩略图地址
           }]
         }
       })
     }
   };
 
-  $body.on('click', '*[site-event]', function(){
+  $body.on('click', '*[site-event]', function () {
     var othis = $(this)
-    ,attrEvent = othis.attr('site-event');
+      , attrEvent = othis.attr('site-event');
     events[attrEvent] && events[attrEvent].call(this, othis);
   });
 
 
   //切换版本
-  form.on('select(tabVersion)', function(data){
+  form.on('select(tabVersion)', function (data) {
     var value = data.value;
     location.href = value === 'new' ? '/' : ('/' + value + '/doc/');
   });
 
 
   //首页 banner
-  setTimeout(function(){
+  setTimeout(function () {
     $('.site-zfj').addClass('site-zfj-anim');
-    setTimeout(function(){
+    setTimeout(function () {
       $('.site-desc').addClass('site-desc-anim')
     }, 5000)
   }, 100);
 
 
   //数字前置补零
-  var digit = function(num, length, end){
+  var digit = function (num, length, end) {
     var str = '';
     num = String(num);
     length = length || 2;
-    for(var i = num.length; i < length; i++){
+    for (var i = num.length; i < length; i++) {
       str += '0';
     }
-    return num < Math.pow(10, length) ? str + (num|0) : num;
+    return num < Math.pow(10, length) ? str + (num | 0) : num;
   };
 
 
   //下载倒计时
   var setCountdown = $('#setCountdown');
-  if($('#setCountdown')[0]){
-    $.get('/api/getTime', function(res){
-      util.countdown(new Date(2017,7,21,8,30,0), new Date(res.time), function(date, serverTime, timer){
+  if ($('#setCountdown')[0]) {
+    $.get('/api/getTime', function (res) {
+      util.countdown(new Date(2017, 7, 21, 8, 30, 0), new Date(res.time), function (date, serverTime, timer) {
         var str = digit(date[1]) + ':' + digit(date[2]) + ':' + digit(date[3]);
         setCountdown.children('span').html(str);
       });
-    },'jsonp');
+    }, 'jsonp');
   }
 
 
   //Adsense
-  ;!function(){
+  ; !function () {
     var len = $('.adsbygoogle').length;
     try {
-      for(var i = 0; i < len; i++){
+      for (var i = 0; i < len; i++) {
         (adsbygoogle = window.adsbygoogle || []).push({});
       }
-    } catch (e){
+    } catch (e) {
       console.error(e)
     }
   }();
@@ -451,17 +451,17 @@ layui.define(['code', 'element', 'table', 'util', 'carousel', 'laytpl'], functio
 
   //获取Github数据
   var getStars = $('#getStars');
-  if(getStars[0]){
-    $.get('https://api.github.com/repos/sentsin/layui', function(res){
+  if (getStars[0]) {
+    $.get('https://api.github.com/repos/sentsin/layui', function (res) {
       getStars.html(res.stargazers_count);
     }, 'json');
   }
 
   //首页操作
-  (function(){
+  (function () {
     var elemDowns = $('.site-showdowns');
     //获取下载数
-    if(elemDowns[0]){
+    if (elemDowns[0]) {
       /*$.get('//fly.layui.com/cross/handle?id=10&type=find', function(res){
           elemDowns.html(res.number);
       }, 'jsonp');*/
@@ -505,29 +505,29 @@ layui.define(['code', 'element', 'table', 'util', 'carousel', 'laytpl'], functio
   //固定Bar
   util.fixbar({
     showHeight: 60
-    ,css: function(){
-      if(global.pageType === 'demo'){
-        return {bottom: 75}
+    , css: function () {
+      if (global.pageType === 'demo') {
+        return { bottom: 75 }
       }
     }()
   });
 
   //窗口scroll
-  ;!function(){
-    var main = $('.site-menu'), scroll = function(){
+  ; !function () {
+    var main = $('.site-menu'), scroll = function () {
       var stop = $(window).scrollTop();
 
-      if($(window).width() <= 992) return;
+      if ($(window).width() <= 992) return;
       var bottom = $('.footer').offset().top - $(window).height();
 
-      if(stop > 60){ //211
-        if(!main.hasClass('site-fix')){
+      if (stop > 60) { //211
+        if (!main.hasClass('site-fix')) {
           main.addClass('site-fix').css({
             width: main.parent().width()
           });
         }
-      }else {
-        if(main.hasClass('site-fix')){
+      } else {
+        if (main.hasClass('site-fix')) {
           main.removeClass('site-fix').css({
             width: 'auto'
           });
@@ -540,7 +540,7 @@ layui.define(['code', 'element', 'table', 'util', 'carousel', 'laytpl'], functio
   }();
 
   //示例页面滚动
-  $(window).on('scroll', function(){
+  $(window).on('scroll', function () {
     /*
     var elemDate = $('.layui-laydate,.layui-colorpicker-main')
     if(elemDate[0]){
@@ -555,9 +555,9 @@ layui.define(['code', 'element', 'table', 'util', 'carousel', 'laytpl'], functio
     */
 
     var elemTips = $('.layui-table-tips');
-    if(elemTips[0]) elemTips.remove();
+    if (elemTips[0]) elemTips.remove();
 
-    if($('.layui-layer')[0]){
+    if ($('.layui-layer')[0]) {
       layer.closeAll('tips');
     }
   });
@@ -569,26 +569,26 @@ layui.define(['code', 'element', 'table', 'util', 'carousel', 'laytpl'], functio
 
   //目录
   var siteDir = $('.site-dir');
-  if(siteDir[0] && $(window).width() > 750){
-    layer.ready(function(){
+  if (siteDir[0] && $(window).width() > 750) {
+    layer.ready(function () {
       layer.open({
         type: 1
-        ,content: siteDir
-        ,skin: 'layui-layer-dir'
-        ,area: 'auto'
-        ,maxHeight: $(window).height() - 300
-        ,title: '目录'
-        ,closeBtn: false
-        ,offset: 'r'
-        ,shade: false
-        ,success: function(layero, index){
+        , content: siteDir
+        , skin: 'layui-layer-dir'
+        , area: 'auto'
+        , maxHeight: $(window).height() - 300
+        , title: '目录'
+        , closeBtn: false
+        , offset: 'r'
+        , shade: false
+        , success: function (layero, index) {
           layer.style(index, {
             marginLeft: -15
           });
         }
       });
     });
-    siteDir.find('li').on('click', function(){
+    siteDir.find('li').on('click', function () {
       var othis = $(this);
       othis.find('a').addClass('layui-this');
       othis.siblings().find('a').removeClass('layui-this');
@@ -596,49 +596,49 @@ layui.define(['code', 'element', 'table', 'util', 'carousel', 'laytpl'], functio
   }
 
   //在textarea焦点处插入字符
-  var focusInsert = function(str){
+  var focusInsert = function (str) {
     var start = this.selectionStart
-    ,end = this.selectionEnd
-    ,offset = start + str.length
+      , end = this.selectionEnd
+      , offset = start + str.length
 
     this.value = this.value.substring(0, start) + str + this.value.substring(end);
     this.setSelectionRange(offset, offset);
   };
 
   //演示页面
-  $('body').on('keydown', '#LAY_editor, .site-demo-text', function(e){
+  $('body').on('keydown', '#LAY_editor, .site-demo-text', function (e) {
     var key = e.keyCode;
-    if(key === 9 && window.getSelection){
+    if (key === 9 && window.getSelection) {
       e.preventDefault();
       focusInsert.call(this, '  ');
     }
   });
 
   var editor = $('#LAY_editor')
-  ,iframeElem = $('#LAY_demo')
-  ,demoForm = $('#LAY_demoForm')[0]
-  ,demoCodes = $('#LAY_demoCodes')[0]
-  ,runCodes = function(){
-    if(!iframeElem[0]) return;
-    var html = editor.val();
+    , iframeElem = $('#LAY_demo')
+    , demoForm = $('#LAY_demoForm')[0]
+    , demoCodes = $('#LAY_demoCodes')[0]
+    , runCodes = function () {
+      if (!iframeElem[0]) return;
+      var html = editor.val();
 
-    // html = html.replace(/=/gi,"layequalsign");
-    // html = html.replace(/script/gi,"layscrlayipttag");
-    demoCodes.value = html.length > 100*1000 ? '<h1>卧槽，你的代码过长</h1>' : html;
+      // html = html.replace(/=/gi,"layequalsign");
+      // html = html.replace(/script/gi,"layscrlayipttag");
+      demoCodes.value = html.length > 100 * 1000 ? '<h1>卧槽，你的代码过长</h1>' : html;
 
-    demoForm.action = '/api/runHtml/';
-    demoForm.submit();
+      demoForm.action = '/api/runHtml/index.php';
+      demoForm.submit();
 
-  };
+    };
   $('#LAY_demo_run').on('click', runCodes), runCodes();
 
   //让导航在最佳位置
-  var setScrollTop = function(thisItem, elemScroll){
-    if(thisItem[0]){
+  var setScrollTop = function (thisItem, elemScroll) {
+    if (thisItem[0]) {
       var itemTop = thisItem.offset().top
-      ,winHeight = $(window).height();
-      if(itemTop > winHeight - 160){
-        elemScroll.animate({'scrollTop': itemTop - winHeight/2}, 200);
+        , winHeight = $(window).height();
+      if (itemTop > winHeight - 160) {
+        elemScroll.animate({ 'scrollTop': itemTop - winHeight / 2 }, 200);
       }
     }
   }
@@ -646,34 +646,34 @@ layui.define(['code', 'element', 'table', 'util', 'carousel', 'laytpl'], functio
   //让选中的菜单保持在可视范围内
   util.toVisibleArea({
     scrollElem: $('.layui-side-scroll').eq(0)
-    ,thisElem: $('.site-demo-nav').find('dd.layui-this')
+    , thisElem: $('.site-demo-nav').find('dd.layui-this')
   });
 
   util.toVisibleArea({
     scrollElem: $('.layui-side-scroll').eq(1)
-    ,thisElem: $('.site-demo-table-nav').find('li.layui-this')
+    , thisElem: $('.site-demo-table-nav').find('li.layui-this')
   });
 
 
 
   //查看代码
-  $(function(){
+  $(function () {
     var DemoCode = $('#LAY_democode');
     DemoCode.val([
       DemoCode.val()
-      ,'<body>'
-      ,global.preview
-      ,'\n<script src="/layui/dist/layui.js" charset="utf-8"></script>'
-      ,'\n<!-- 注意：如果你直接复制所有代码到本地，上述 JS 路径需要改成你本地的 -->'
-      ,$('#LAY_democodejs').html()
-      ,'\n</body>\n</html>'
+      , '<body>'
+      , global.preview
+      , '\n<script src="/layui/dist/layui.js" charset="utf-8"></script>'
+      , '\n<!-- 注意：如果你直接复制所有代码到本地，上述 JS 路径需要改成你本地的 -->'
+      , $('#LAY_democodejs').html()
+      , '\n</body>\n</html>'
     ].join(''));
   });
 
   //点击查看代码选项
-  element.on('tab(demoTitle)', function(obj){
-    if(obj.index === 1){
-      if(device.ie && device.ie < 9){
+  element.on('tab(demoTitle)', function (obj) {
+    if (obj.index === 1) {
+      if (device.ie && device.ie < 9) {
         layer.alert('强烈不推荐你通过ie8/9 查看代码！因为，所有的标签都会被格式成大写，且没有换行符，影响阅读');
       }
     }
@@ -682,73 +682,73 @@ layui.define(['code', 'element', 'table', 'util', 'carousel', 'laytpl'], functio
 
   //手机设备的简单适配
   var treeMobile = $('.site-tree-mobile')
-  ,shadeMobile = $('.site-mobile-shade')
+    , shadeMobile = $('.site-mobile-shade')
 
-  treeMobile.on('click', function(){
+  treeMobile.on('click', function () {
     $('body').addClass('site-mobile');
   });
 
-  shadeMobile.on('click', function(){
+  shadeMobile.on('click', function () {
     $('body').removeClass('site-mobile');
   });
 
 
 
   //愚人节
-  ;!function(){
-    if(elemHome.data('date') === '4-1'){
+  ; !function () {
+    if (elemHome.data('date') === '4-1') {
       return
-      if(local['20180401']) return;
+      if (local['20180401']) return;
 
       elemHome.addClass('site-out-up');
-      setTimeout(function(){
+      setTimeout(function () {
         layer.photos({
           photos: {
             "data": [{
               "src": "/upload/2018_4/168_1522515820513_397.png",
             }]
           }
-          ,anim: 2
-          ,shade: 1
-          ,move: false
-          ,end: function(){
+          , anim: 2
+          , shade: 1
+          , move: false
+          , end: function () {
             layer.msg('愚公，快醒醒！', {
               shade: 1
-            }, function(){
+            }, function () {
               layui.data('layui', {
                 key: '20180401'
-                ,value: true
+                , value: true
               });
             });
           }
-          ,success: function(layero, index){
+          , success: function (layero, index) {
             elemHome.removeClass('site-out-up');
 
-            layero.find('#layui-layer-photos').on('click', function(){
+            layero.find('#layui-layer-photos').on('click', function () {
               layer.close(layero.attr('times'));
             }).find('.layui-layer-imgsee').remove();
           }
         });
-      }, 1000*3);
+      }, 1000 * 3);
     }
   }();
 
   //获取文档图标数据
-  home.getIconData = function(){
+  home.getIconData = function () {
     var $ = layui.$
-    ,iconData = []
-    ,iconListElem = $('.site-doc-icon li');
+      , iconData = []
+      , iconListElem = $('.site-doc-icon li');
 
-    iconListElem.each(function(){
+    iconListElem.each(function () {
       var othis = $(this);
       iconData.push({
         title: $.trim(othis.find('.doc-icon-name').text())
-        ,fontclass: $.trim(othis.find('.doc-icon-fontclass').text())
-        ,unicode: $.trim(othis.find('.doc-icon-code').html())
+        , fontclass: $.trim(othis.find('.doc-icon-fontclass').text())
+        , unicode: $.trim(othis.find('.doc-icon-code').html())
       });
     });
 
-    $('.site-h1').html('<textarea style="width: 100%; height: 600px;">'+ JSON.stringify(iconData) + '</textarea>');
+    $('.site-h1').html('<textarea style="width: 100%; height: 600px;">' + JSON.stringify(iconData) + '</textarea>');
   };
 
 
