@@ -10,7 +10,7 @@
 [Lehman-Blog](https://www.lehman.top/)
 
 ### Genshin
-<img alt="Genshin game card" src="https://genshin-card.himiku.com/rand/222323272.png" width="500">
+<img alt="Genshin game card" src="https://genshin-card.himiku.com/rand/222323272.png" >
 
 ---
 
