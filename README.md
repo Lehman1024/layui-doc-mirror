@@ -46,13 +46,6 @@
 ---
 
 
-### Genshin
-<img src="https://genshin-card.himiku.com/rand/222323272.png" alt="genshin-card" />
-
-
----
-
-
 #### 介绍
 
 本站仅为layui文档镜像站点！
@@ -68,4 +61,9 @@
 2021年9月24日，发布官网停止维护后，第一时间就想备份整站文档。毕竟这个都用了这么多年了，习惯了。
 
 ![发布官网停止维护](https://images.gitee.com/uploads/images/2021/1012/214401_d62435af_8718280.png "发布官网停止维护.png")
+
+
+#### 补充说明
+
+LayUI官网（new）地址：https://layui.dev/
 
